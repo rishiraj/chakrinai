@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PostHogAnalytics from "@/components/PostHogAnalytics";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,8 @@ export default function RootLayout({
       >
         <GoogleAnalytics />
         <PostHogAnalytics />
-        {children}
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );
