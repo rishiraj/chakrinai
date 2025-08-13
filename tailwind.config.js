@@ -1,0 +1,126 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#bd2f21',
+          light: '#d23526',
+          dark: '#a0251a',
+        },
+        secondary: {
+          DEFAULT: '#fdb33a',
+          light: '#ffc76c',
+          dark: '#f1aa37',
+        },
+        accent: {
+          DEFAULT: '#fc7228',
+          light: '#ff8a4a',
+          dark: '#e65a1a',
+        },
+        neutral: {
+          cream: '#f2f0e0',
+          black: '#000000',
+          white: '#ffffff',
+          gray: {
+            light: '#2e233d',
+            DEFAULT: '#111114',
+          }
+        }
+      },
+      fontFamily: {
+        'awesome-serif': ['AwesomeSerifItalic-Regular', 'serif'],
+        'caption-handwriting': ['CaptionHandwriting-Italic', 'cursive'],
+        'fitfully': ['Fitfully-Regular', 'sans-serif'],
+        'figma-hand': ['FigmaHand-Bold', 'sans-serif'],
+        'product-sans': ['ProductSans-Regular', 'sans-serif'],
+        'dk-keswick': ['DkKeswick-Regular', 'serif'],
+        'alumni-sans': ['AlumniSans-Medium', 'sans-serif'],
+        'inter': ['Inter-Regular', 'sans-serif'],
+      },
+      fontSize: {
+        'hero': ['clamp(3rem,8vw,9rem)', { lineHeight: '1.1' }],
+        'subtitle': ['clamp(2rem,6vw,7rem)', { lineHeight: '1.1' }],
+        'title': ['clamp(2.5rem,7vw,8rem)', { lineHeight: '1.1' }],
+        'heading': ['clamp(2rem,5vw,6rem)', { lineHeight: '1.1' }],
+        'body': ['clamp(1.25rem,3vw,2.5rem)', { lineHeight: '1.4' }],
+        'caption': ['clamp(1.5rem,4vw,3rem)', { lineHeight: '1.2' }],
+        'small': ['clamp(0.875rem,2vw,1.125rem)', { lineHeight: '1.6' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '94': '23.5rem',
+        '106': '26.5rem',
+        '129': '32.25rem',
+        '287': '71.75rem',
+        '312': '78rem',
+        '341': '85.25rem',
+        '380': '95rem',
+        '392': '98rem',
+        '445': '111.25rem',
+        '562': '140.5rem',
+        '720': '180rem',
+        '852': '213rem',
+        '886': '221.5rem',
+        '940': '235rem',
+        '979': '244.75rem',
+        '1010': '252.5rem',
+        '1080': '270rem',
+        '1114': '278.5rem',
+        '1202': '300.5rem',
+        '1300': '325rem',
+        '1334': '333.5rem',
+        '1343': '335.75rem',
+        '1436': '359rem',
+        '1440': '360rem',
+        '1842': '460.5rem',
+        '2100': '525rem',
+        '2943': '735.75rem',
+        '3361': '840.25rem',
+        '4170': '1042.5rem',
+        '5102': '1275.5rem',
+        '6379': '1594.75rem',
+        '7295': '1823.75rem',
+      },
+      borderRadius: {
+        '80': '80px',
+        '100': '100px',
+        '129': '129.35px',
+        '287': '287.69px',
+        '328': '328.79px',
+        '1000': '1001.48px',
+      },
+      boxShadow: {
+        'button': '-7px 8px 0px 0px rgba(0, 0, 0, 1)',
+        'review': '2.59px 7.76px 0px 0px rgba(0, 0, 0, 1)',
+      },
+      animation: {
+        'marquee': 'marquee 20s linear infinite',
+        'marqueue': 'marquee 20s linear infinite reverse',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
+      },
+    },
+  },
+  plugins: [],
+} 

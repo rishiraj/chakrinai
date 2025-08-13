@@ -5,18 +5,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   return (
-    <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="border-b border-neutral-gray-light bg-neutral-cream/95 backdrop-blur supports-[backdrop-filter]:bg-neutral-cream/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -30,7 +27,7 @@ export default function Navbar() {
                   priority
                 />
               </div>
-              <span className="text-xl font-bold text-foreground">
+              <span className="text-xl font-bold text-neutral-black">
                 Chakri Nai
               </span>
             </Link>
@@ -65,11 +62,11 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <Button
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              className="border-primary text-primary hover:bg-primary hover:text-white"
             >
               Participate now
             </Button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button className="bg-primary text-white hover:bg-primary/90">
               Recruit Now
             </Button>
           </div>
