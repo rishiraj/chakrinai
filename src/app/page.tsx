@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Header,
   Subtitle,
@@ -6,21 +6,21 @@ import {
   RoastMasters,
   Testimonials,
   Reviews,
-  Footer
-} from '@/components';
+  Footer,
+} from "@/components";
 
 export default function Home() {
   return (
     <div className="bg-primary min-h-screen">
       {/* Header Component */}
       <Header />
-      
+
       {/* Subtitle Component */}
       <Subtitle />
-      
+
       {/* How It Works Component */}
       <HowItWorks />
-      
+
       {/* Decorative image */}
       <div className="w-full flex justify-center py-16">
         <img
@@ -29,16 +29,16 @@ export default function Home() {
           alt="Decorative human figure"
         />
       </div>
-      
+
       {/* Roast Masters Component */}
       <RoastMasters />
-      
+
       {/* Testimonials Component */}
       <Testimonials />
-      
+
       {/* Reviews Component */}
       <Reviews />
-      
+
       {/* Footer Component */}
       <Footer />
     </div>

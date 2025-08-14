@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Marquee from "react-fast-marquee";
 
 const Header: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
           src="/assets/human.svg"
           alt="Background pattern"
         />
-        
+
         {/* Navigation Bar */}
         <div className="bg-primary rounded-full px-8 py-6 w-full max-w-5xl mx-auto h-auto min-h-[106px] relative top-16 flex items-center justify-between">
           <div className="flex items-center space-x-8">
@@ -30,14 +31,14 @@ const Header: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Logo */}
           <img
             className="w-56 h-auto absolute left-1/2 top-[-52px] -translate-x-1/2"
             src="/Chakri Nai Logo.jpeg"
             alt="Chakri Nai Logo"
           />
-          
+
           <div className="flex items-center space-x-8">
             <div className="rounded-full px-8 py-4 flex items-center justify-center">
               <div className="text-white text-left font-figma-hand text-2xl font-bold">
@@ -52,35 +53,27 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Marquee Text */}
-      <div className="bg-primary py-12 flex flex-col items-center justify-center w-full absolute bottom-0">
-        <div className="flex items-center space-x-6 overflow-hidden">
-          <div className="flex items-center space-x-6 animate-marquee">
-            <div className="text-white text-center font-awesome-serif text-5xl font-normal whitespace-nowrap">
-              Pitch.
-            </div>
-            <div className="text-white text-center font-awesome-serif text-5xl font-normal whitespace-nowrap">
-              Get Roasted.
-            </div>
-            <div className="text-white text-center font-awesome-serif text-5xl font-normal whitespace-nowrap">
-              Get Hired.
-            </div>
-          </div>
-          <div className="flex items-center space-x-6 animate-marqueue">
-            <div className="text-white text-center font-awesome-serif text-5xl font-normal whitespace-nowrap">
-              Pitch.
-            </div>
-            <div className="text-white text-center font-awesome-serif text-5xl font-normal whitespace-nowrap">
-              Get Roasted.
-            </div>
-            <div className="text-white text-center font-awesome-serif text-5xl font-normal whitespace-nowrap">
-              Get Hired.
-            </div>
-          </div>
-        </div>
+      <div className="bg-primary py-12 flex flex-col items-center justify-center w-full absolute bottom-0 ">
+        <Marquee
+          speed={75}
+          gradient={false}
+          pauseOnHover={false}
+          className="text-white font-awesome-serif text-5xl font-normal"
+        >
+          <span className="mr-8">Pitch.</span>
+          <span className="mr-8">Get Roasted.</span>
+          <span className="mr-8">Get Hired.</span>
+          <span className="mr-8">Pitch.</span>
+          <span className="mr-8">Get Roasted.</span>
+          <span className="mr-8">Get Hired.</span>
+          <span className="mr-8">Pitch.</span>
+          <span className="mr-8">Get Roasted.</span>
+          <span className="mr-8">Get Hired.</span>
+        </Marquee>
       </div>
-      
+
       {/* Hero Content */}
       <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
         <div className="flex flex-col items-center space-y-16 mb-16">
@@ -102,7 +95,7 @@ const Header: React.FC = () => {
             show — where job seekers get made, not broken.
           </div>
         </div>
-        
+
         {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
           <button className="bg-white rounded-full border-2 border-black px-12 py-4 flex items-center justify-center shadow-button hover:shadow-lg transition-shadow">
@@ -121,4 +114,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header; 
+export default Header;
