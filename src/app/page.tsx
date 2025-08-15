@@ -6,6 +6,7 @@ import {
   RoastMasters,
   Testimonials,
   Reviews,
+  ThankYou,
   Footer,
 } from "@/components";
 
@@ -23,23 +24,25 @@ export default function Home() {
 
       {/* Decorative image */}
       <div className="w-full flex justify-center py-16">
-        <img
+        {/* <img
           className="w-64 h-auto opacity-80"
           src="/assets/human.svg"
           alt="Decorative human figure"
-        />
+        /> */}
       </div>
 
       {/* Roast Masters Component */}
-      <RoastMasters />
+      {/* <RoastMasters /> */}
 
       {/* Testimonials Component */}
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       {/* Reviews Component */}
       <Reviews />
 
       {/* Footer Component */}
+      <ThankYou />
+
       <Footer />
     </div>
   );

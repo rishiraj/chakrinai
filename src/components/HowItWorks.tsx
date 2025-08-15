@@ -1,12 +1,21 @@
-import React from 'react';
+import React from "react";
 
 const HowItWorks: React.FC = () => {
   return (
-    <div className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6">
+    <div className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6 relative">
+      
+      {/* Paper Bucket */}
+      <div className="absolute -top-16 right-6">
+        <img
+          className="w-32 h-auto"
+          src="/assets/paper bucket.png"
+          alt="Paper bucket"
+        />
+      </div>
       <div className="text-black text-center font-fitfully text-4xl md:text-6xl lg:text-8xl font-normal uppercase mb-16">
         How the Roast Happens
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 items-start">
         {/* Step 1: Step Onto the Stage */}
         <div className="flex flex-col items-center text-center">
@@ -26,7 +35,7 @@ const HowItWorks: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Step 2: Roast */}
         <div className="flex flex-col items-center text-center">
           <div className="bg-primary rounded-full p-4 mb-8 w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
@@ -46,7 +55,7 @@ const HowItWorks: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Step 3: Land Your Next Role */}
         <div className="flex flex-col items-center text-center">
           <div className="bg-primary rounded-full p-4 mb-8 w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
@@ -70,4 +79,4 @@ const HowItWorks: React.FC = () => {
   );
 };
 
-export default HowItWorks; 
+export default HowItWorks;
