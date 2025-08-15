@@ -34,14 +34,14 @@ module.exports = {
         }
       },
       fontFamily: {
-        'awesome-serif': ['AwesomeSerifItalic-Regular', 'serif'],
-        'caption-handwriting': ['CaptionHandwriting-Italic', 'cursive'],
-        'fitfully': ['Fitfully-Regular', 'sans-serif'],
+        'awesome-serif': ['var(--font-awesome-serif)', 'serif'],
+        'caption-handwriting': ['var(--font-handwriting)', 'cursive'],
+        'fitfully': ['var(--font-fitfully)', 'sans-serif'],
         'figma-hand': ['FigmaHand-Bold', 'sans-serif'],
         'product-sans': ['ProductSans-Regular', 'sans-serif'],
         'dk-keswick': ['DkKeswick-Regular', 'serif'],
         'alumni-sans': ['AlumniSans-Medium', 'sans-serif'],
-        'inter': ['Inter-Regular', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'sans-serif'],
       },
       fontSize: {
         'hero': ['clamp(3rem,8vw,9rem)', { lineHeight: '1.1' }],

@@ -1,117 +1,79 @@
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+import RedStroke from '../../public/assets/red-stroke.png';
 import Marquee from "react-fast-marquee";
-
+import Navbar from './Navbar';
 const Header: React.FC = () => {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-primary">
-      <div className="bg-neutral-cream rounded-t-[80px] w-full max-w-7xl mx-auto h-auto min-h-[886px] relative top-12 overflow-hidden">
-        {/* Background Images */}
+
+    <div className="w-full bg-primary pt-16">
+      <div className="bg-neutral-cream rounded-t-[80px] w-11/12 mx-auto flex flex-col items-center gap-16 md:gap-24 px-4 py-12 md:py-20 relative overflow-hidden">
+
         <img
-          className="w-96 h-auto absolute right-8 top-16 opacity-80"
-          src="/assets/logo.png"
-          alt="Decorative logo"
-        />
-        <img
-          className="w-full max-w-6xl h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-60"
+          className="w-full h-auto absolute left-1/2 bottom-0 -translate-x-1/2 opacity-60 -z-0"
           src="/assets/human.svg"
           alt="Background pattern"
         />
 
-        {/* Navigation Bar */}
-        <div className="bg-primary rounded-full px-8 py-6 w-full max-w-5xl mx-auto h-auto min-h-[106px] relative top-16 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <div className="bg-white rounded-full px-8 py-4 flex items-center justify-center">
-              <div className="text-primary text-left font-figma-hand text-2xl font-bold">
-                Home
-              </div>
+        {/* Navigation Section Wrapper  */}
+        <Navbar />
+
+        {/* Hero Content Section */}
+        <div className="flex flex-col items-center gap-16 text-center z-10">
+          {/* Hero Text */}
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-x-12 gap-y-4 font-awesome-serif font-normal text-6xl md:text-8xl">
+              <h2>Pitch.</h2>
+              <h2>Get Roasted.</h2>
+              <h2 className="relative flex px-4 items-center justify-center">
+                <Image src={RedStroke} alt="" className='scale-90 lg:scale-100' />
+                <span className='absolute'> Get Hired.</span>
+              </h2>
             </div>
-            <div className="rounded-full px-8 py-4 flex items-center justify-center">
-              <div className="text-white text-left font-figma-hand text-2xl font-bold">
-                About
-              </div>
-            </div>
+            <p className="font-inter text-base md:text-3xl  w-11/12 lg:max-w-4xl px-8">
+              India&apos;s first roast-comedy job pitch
+              <br />
+              show — where job seekers get made, not broken.
+            </p>
           </div>
 
-          {/* Logo */}
-          <img
-            className="w-56 h-auto absolute left-1/2 top-[-52px] -translate-x-1/2"
-            src="/Chakri Nai Logo.jpeg"
-            alt="Chakri Nai Logo"
-          />
-
-          <div className="flex items-center space-x-8">
-            <div className="rounded-full px-8 py-4 flex items-center justify-center">
-              <div className="text-white text-left font-figma-hand text-2xl font-bold">
-                Speakers
-              </div>
-            </div>
-            <div className="rounded-full px-8 py-4 flex items-center justify-center">
-              <div className="text-white text-left font-figma-hand text-2xl font-bold">
-                Tickets
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Marquee Text */}
-      <div className="bg-primary py-12 flex flex-col items-center justify-center w-full absolute bottom-0 ">
-        <Marquee
-          speed={75}
-          gradient={false}
-          pauseOnHover={false}
-          className="text-white font-awesome-serif text-5xl font-normal"
-        >
-          <span className="mr-8">Pitch.</span>
-          <span className="mr-8">Get Roasted.</span>
-          <span className="mr-8">Get Hired.</span>
-          <span className="mr-8">Pitch.</span>
-          <span className="mr-8">Get Roasted.</span>
-          <span className="mr-8">Get Hired.</span>
-          <span className="mr-8">Pitch.</span>
-          <span className="mr-8">Get Roasted.</span>
-          <span className="mr-8">Get Hired.</span>
-        </Marquee>
-      </div>
-
-      {/* Hero Content */}
-      <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-        <div className="flex flex-col items-center space-y-16 mb-16">
-          <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12">
-            <div className="text-black text-center font-awesome-serif text-6xl md:text-8xl lg:text-9xl font-normal">
-              Pitch.
-            </div>
-            <div className="text-black text-center font-awesome-serif text-6xl md:text-8xl lg:text-9xl font-normal">
-              Get Roasted.
-            </div>
-            <div className="text-black text-center font-awesome-serif text-6xl md:text-8xl lg:text-9xl font-normal relative">
-              Get Hired.
-              <div className="absolute inset-0 bg-secondary rounded-full -z-10 transform scale-110"></div>
-            </div>
-          </div>
-          <div className="text-black text-center font-product-sans text-2xl md:text-3xl lg:text-4xl font-normal max-w-4xl">
-            India&apos;s first roast-comedy job pitch
-            <br />
-            show — where job seekers get made, not broken.
-          </div>
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
-          <button className="bg-white rounded-full border-2 border-black px-12 py-4 flex items-center justify-center shadow-button hover:shadow-lg transition-shadow">
-            <div className="text-black text-center font-caption-handwriting text-2xl md:text-3xl font-normal italic">
+          {/* CTA Buttons */}
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 font-caption-handwriting italic text-2xl md:text-4xl">
+            <button className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
+                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
               Buy Tickets
-            </div>
-          </button>
-          <button className="bg-secondary rounded-full border-2 border-black px-12 py-4 flex items-center justify-center shadow-button hover:shadow-lg transition-shadow">
-            <div className="text-black text-center font-caption-handwriting text-2xl md:text-3xl font-normal italic">
+            </button>
+            <button className="bg-secondary rounded-full border-2 border-black px-12 py-4 shadow-button 
+                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
               Apply as Participant
-            </div>
-          </button>
+            </button>
+          </div>
+          {/* Marquee Section */}
+          <div className="bg-primary py-12 w-full overflow-x-hidden">
+            <Marquee>
+              <MarqueeText />
+              <MarqueeText />
+              <MarqueeText />
+              <MarqueeText />
+              <MarqueeText />
+            </Marquee>
+          </div>
         </div>
       </div>
+
+
+
     </div>
   );
 };
+
+// Helper component to avoid repeating the marquee text block
+const MarqueeText = () => (
+  <div className="flex items-center space-x-6 px-2 font-awesome-serif text-6xl text-white">
+    <span>Pitch.</span>
+    <span>Get Roasted.</span>
+    <span>Get Hired.</span>
+  </div>
+);
 
 export default Header;
