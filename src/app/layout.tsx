@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PostHogAnalytics from "@/components/PostHogAnalytics";
-import { awesomeSerif, handwriting, fitfully } from "@/lib/fonts";
-
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import { awesomeSerif, handwriting, fitfully, merriweatherSans } from "@/lib/fonts";
 
 
 export const metadata: Metadata = {
@@ -25,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${awesomeSerif.variable} ${handwriting.variable} ${fitfully.variable} ${inter.className} antialiased`}
+        className={`${merriweatherSans.variable} ${awesomeSerif.variable} ${handwriting.variable} ${fitfully.variable} ${merriweatherSans.className} antialiased`}
       >
         <GoogleAnalytics />
         <PostHogAnalytics />

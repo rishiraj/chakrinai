@@ -1,3 +1,6 @@
+import { socialLinks } from "@/data/socialLinks";
+import { Facebook, Instagram, X } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const ThankYou: React.FC = () => {
@@ -23,13 +26,11 @@ const ThankYou: React.FC = () => {
           <div className="flex flex-col gap-8 text-center lg:text-left">
             <div className="flex flex-col gap-6">
               <div className="text-secondary-light font-awesome-serif text-3xl md:text-4xl lg:text-5xl font-normal italic">
-                hello123@gmail.com
+                chakrinaishow@gmail.com
               </div>
-              <div className="text-secondary-light font-awesome-serif text-3xl md:text-4xl lg:text-5xl font-normal italic">
-                +91-00000-00000
-              </div>
+
               <div className="text-secondary-light font-caption-handwriting text-2xl md:text-3xl lg:text-4xl font-normal italic">
-                Kolkata, Sector V, Bidhannagar
+                Kolkata, West Bengal
               </div>
             </div>
             <div className="text-secondary-light font-awesome-serif text-lg md:text-xl lg:text-2xl font-normal italic">
@@ -39,24 +40,15 @@ const ThankYou: React.FC = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex items-end gap-4">
+        <div className="flex items-center gap-4">
           {/* Instagram/Camera icon */}
-          <div className="bg-secondary-light rounded-full p-4 border border-black">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <div className="w-6 h-6 border-2 border-black rounded-sm relative">
-                <div className="absolute top-1 right-1 w-2 h-2 border-2 border-black rounded-full"></div>
-                <div className="absolute top-2 left-2 w-1 h-1 bg-black rounded-full"></div>
-              </div>
-            </div>
-          </div>
+          <Link href={socialLinks.instagram} className="bg-secondary-light rounded-full p-4 border border-black">
+            <Instagram className="size-10" />
+          </Link>
           {/* Profile icon */}
-          <div className="bg-secondary-light rounded-full p-4 border border-black">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-secondary-light rounded-full"></div>
-              </div>
-            </div>
-          </div>
+          <Link href={socialLinks.twitter} className="bg-secondary-light rounded-full p-4 border border-black">
+            <X className="size-10" />
+          </Link>
         </div>
       </div>
     </div>

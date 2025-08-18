@@ -2,7 +2,7 @@ import React from "react";
 
 const Reviews: React.FC = () => {
   return (
-    <div className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6 relative">
+    <div className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6 relative mt-8">
       {/* Background grid pattern */}
       <div className="absolute inset-0 rounded-[80px] opacity-20">
         <div

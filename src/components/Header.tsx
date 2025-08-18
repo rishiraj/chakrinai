@@ -3,6 +3,8 @@ import React from 'react';
 import RedStroke from '../../public/assets/red-stroke.png';
 import Marquee from "react-fast-marquee";
 import Navbar from './Navbar';
+import { formLinks } from '@/data/forms';
+import FeatureRule from '../../public/content/feature.rule.json'
 const Header: React.FC = () => {
   return (
 
@@ -30,7 +32,7 @@ const Header: React.FC = () => {
                 <span className='absolute'> Get Hired.</span>
               </h2>
             </div>
-            <p className="font-inter text-base md:text-3xl  w-11/12 lg:max-w-4xl px-8">
+            <p className="font-merriweather-sans text-base md:text-3xl  w-11/12 lg:max-w-4xl px-8">
               India&apos;s first roast-comedy job pitch
               <br />
               show — where job seekers get made, not broken.
@@ -39,14 +41,22 @@ const Header: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 font-caption-handwriting italic text-2xl md:text-4xl">
-            <button className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
+
+            {
+              FeatureRule.header.showRecruiters && (<a href={formLinks.recruiters} target="_blank" className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
+                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
+                Become a Roast Master
+              </a>)
+            }
+            {FeatureRule.header.showTickets && (<a href={formLinks.tickets} target="_blank" className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
                      transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
               Buy Tickets
-            </button>
-            <button className="bg-secondary rounded-full border-2 border-black px-12 py-4 shadow-button 
+            </a>)}
+
+            <a href={formLinks.participants} target="_blank" className="bg-secondary rounded-full border-2 border-black px-12 py-4 shadow-button 
                      transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
               Apply as Participant
-            </button>
+            </a>
           </div>
           {/* Marquee Section */}
           <div className="bg-primary py-12 w-full overflow-x-hidden">
@@ -60,8 +70,6 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-
-
 
     </div>
   );
