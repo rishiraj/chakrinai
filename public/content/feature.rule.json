@@ -1,7 +1,12 @@
 {
     "sections": {
         "header": true,
-        "subtitle": true
+        "subtitle": true,
+        "howItWorks": true,
+        "roastMasters": true,
+        "testimonials": false,
+        "reviews": false,
+        "footer": true
     },
     "header": {
         "showTickets": false,

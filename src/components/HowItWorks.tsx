@@ -4,8 +4,10 @@ import React from "react";
 
 const HowItWorks: React.FC = () => {
   return (
-    <div className="bg-neutral-cream rounded-[80px] w-11/12 mx-auto py-24 px-6 relative">
-
+    <div
+      id="how-it-works"
+      className="bg-neutral-cream rounded-[80px] w-11/12 mx-auto py-24 px-6 relative scroll-mt-[120px]"
+    >
       {/* Paper Bucket */}
       <div className="absolute -top-16 right-6">
         <img
@@ -32,7 +34,13 @@ const HowItWorks: React.FC = () => {
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
               Step Onto the Stage
             </h2>
-            <p className={cn(merriweatherSans.className, merriweatherSans.variable, "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal")}>
+            <p
+              className={cn(
+                merriweatherSans.className,
+                merriweatherSans.variable,
+                "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
+              )}
+            >
               Step into the ring with your pitch and resume.
             </p>
           </div>
@@ -51,7 +59,13 @@ const HowItWorks: React.FC = () => {
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
               Roast
             </h2>
-            <p className={cn(merriweatherSans.className, merriweatherSans.variable, "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal")}>
+            <p
+              className={cn(
+                merriweatherSans.className,
+                merriweatherSans.variable,
+                "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
+              )}
+            >
               Startup founders, comedians, and industry icons roast your
               pitch—with heart and humor.
             </p>
@@ -71,13 +85,19 @@ const HowItWorks: React.FC = () => {
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
               Land Your Next Role
             </h2>
-            <p className={cn(merriweatherSans.className, merriweatherSans.variable, "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal")}>
+            <p
+              className={cn(
+                merriweatherSans.className,
+                merriweatherSans.variable,
+                "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
+              )}
+            >
               Walk away with real interviews, internships—or even job offers.
             </p>
           </div>
-        </div >
-      </div >
-    </div >
+        </div>
+      </div>
+    </div>
   );
 };
 

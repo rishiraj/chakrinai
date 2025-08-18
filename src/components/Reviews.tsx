@@ -7,7 +7,7 @@ const Reviews: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   // Colors inspired by the reference image
-  const layerColors = ["#B73A2B", "#E46A3A", "#F08A3B"];
+  const layerColors = ["#D32F2F", "#FC7228", "#F9A825"];
 
   // Compute slot (0=top,1=middle,2=bottom) for each layer based on active index
   const getSlotForLayer = (layer: number) => (layer - activeIndex + 3) % 3;
@@ -20,6 +20,20 @@ const Reviews: React.FC = () => {
   } as const;
 
   const handleAdvance = () => setActiveIndex((prev) => (prev + 1) % 3);
+
+  // Load reviews from public/content/reviews.json
+  const [reviews, setReviews] = React.useState<
+    { id: string; quote: string; author: string; role: string }[]
+  >([]);
+
+  React.useEffect(() => {
+    fetch("/content/reviews.json")
+      .then((r) => r.json())
+      .then((data) => Array.isArray(data) && setReviews(data))
+      .catch(() => {
+        /* ignore; fall back to placeholders */
+      });
+  }, []);
 
   return (
     <div className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6 relative mt-8">
@@ -70,7 +84,7 @@ const Reviews: React.FC = () => {
                   style={{ backgroundColor: layerColors[layer] }}
                   initial={false}
                   animate={{ x, y, rotate, scale, zIndex: 30 - slot * 10 }}
-                  whileHover={isTop ? { rotate: -0.5, y: -4 } : undefined}
+                  whileHover={isTop ? { rotate: -3, y: -4 } : undefined}
                   transition={spring}
                   onClick={isTop ? handleAdvance : undefined}
                   role={isTop ? "button" : undefined}
@@ -93,23 +107,16 @@ const Reviews: React.FC = () => {
 
                       {/* Review text */}
                       <div className="text-black font-caption-handwriting text-lg md:text-4xl font-normal italic leading-relaxed mb-8">
-                        &ldquo;This app makes managing my portfolio so
-                        <br />
-                        easy. I love the real-time updates and seamless
-                        <br />
-                        transactions. It&apos;s the best crypto app I&apos;ve
-                        ever
-                        <br />
-                        used!&rdquo;
+                        &ldquo;{reviews[activeIndex]?.quote}&rdquo;
                       </div>
 
                       {/* Attribution and role */}
                       <div className="flex flex-col items-start justify-between">
                         <div className="text-black font-caption-handwriting text-2xl md:text-4xl font-normal italic mb-4">
-                          (John Doe)
+                          ({reviews[activeIndex]?.author})
                         </div>
                         <div className="text-yellow-500 font-alumni-sans text-lg md:text-4xl font-medium italic self-end">
-                          Developer
+                          {reviews[activeIndex]?.role}
                         </div>
                       </div>
                     </div>

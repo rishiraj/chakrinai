@@ -42,11 +42,17 @@ const ThankYou: React.FC = () => {
         {/* Social Media Icons */}
         <div className="flex items-center gap-4">
           {/* Instagram/Camera icon */}
-          <Link href={socialLinks.instagram} className="bg-secondary-light rounded-full p-4 border border-black">
+          <Link
+            href={socialLinks.instagram}
+            className="bg-secondary-light rounded-full p-4 border border-black"
+          >
             <Instagram className="size-10" />
           </Link>
           {/* Profile icon */}
-          <Link href={socialLinks.twitter} className="bg-secondary-light rounded-full p-4 border border-black">
+          <Link
+            href={socialLinks.twitter}
+            className="bg-secondary-light rounded-full p-4 border border-black"
+          >
             <X className="size-10" />
           </Link>
         </div>

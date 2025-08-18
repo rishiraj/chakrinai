@@ -10,6 +10,7 @@ import {
   Footer,
 } from "@/components";
 // import { getRoastMasters } from "@/data/roastMasters";
+import FeatureRule from "../../public/content/feature.rule.json";
 
 export default function Home() {
   return (
@@ -24,25 +25,24 @@ export default function Home() {
         ></div>
       </div>
       {/* Header Component */}
-      <Header />
+      {FeatureRule.sections.header && <Header />}
       {/* Subtitle Component */}
-      <Subtitle />
+      {FeatureRule.sections.subtitle && <Subtitle />}
 
       {/* How It Works Component */}
-      <HowItWorks />
+      {FeatureRule.sections.howItWorks && <HowItWorks />}
 
       {/* Roast Masters Component */}
-      <RoastMasters />
+      {FeatureRule.sections.roastMasters && <RoastMasters />}
 
       {/* Testimonials Component */}
       {/* <Testimonials /> */}
 
       {/* Reviews Component */}
-      <Reviews />
+      {FeatureRule.sections.reviews && <Reviews />}
 
       {/* Footer Component */}
-      <ThankYou />
-
+      {FeatureRule.sections.footer && <ThankYou />}
 
       <Footer />
     </div>

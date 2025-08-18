@@ -1,16 +1,14 @@
-import Image from 'next/image';
-import React from 'react';
-import RedStroke from '../../public/assets/red-stroke.png';
+import Image from "next/image";
+import React from "react";
+import RedStroke from "../../public/assets/red-stroke.png";
 import Marquee from "react-fast-marquee";
-import Navbar from './Navbar';
-import { formLinks } from '@/data/forms';
-import FeatureRule from '../../public/content/feature.rule.json'
+import Navbar from "./Navbar";
+import { formLinks } from "@/data/forms";
+import FeatureRule from "../../public/content/feature.rule.json";
 const Header: React.FC = () => {
   return (
-
-    <div className="w-full bg-primary pt-16">
+    <div id="home" className="w-full bg-primary pt-16">
       <div className="bg-neutral-cream rounded-t-[80px] w-11/12 mx-auto flex flex-col items-center gap-16 md:gap-24 px-4 py-12 md:py-20 relative overflow-hidden">
-
         <img
           className="w-full h-auto absolute left-1/2 bottom-0 -translate-x-1/2 opacity-60 -z-0"
           src="/assets/human.svg"
@@ -19,6 +17,8 @@ const Header: React.FC = () => {
 
         {/* Navigation Section Wrapper  */}
         <Navbar />
+        {/* Spacer for fixed navbar height */}
+        <div className="h-[100px]" aria-hidden />
 
         {/* Hero Content Section */}
         <div className="flex flex-col items-center gap-16 text-center z-10">
@@ -28,8 +28,12 @@ const Header: React.FC = () => {
               <h2>Pitch.</h2>
               <h2>Get Roasted.</h2>
               <h2 className="relative flex px-4 items-center justify-center">
-                <Image src={RedStroke} alt="" className='scale-90 lg:scale-100' />
-                <span className='absolute'> Get Hired.</span>
+                <Image
+                  src={RedStroke}
+                  alt=""
+                  className="scale-90 lg:scale-100"
+                />
+                <span className="absolute"> Get Hired.</span>
               </h2>
             </div>
             <p className="font-merriweather-sans text-base md:text-3xl  w-11/12 lg:max-w-4xl px-8">
@@ -41,20 +45,33 @@ const Header: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 font-caption-handwriting italic text-2xl md:text-4xl">
-
-            {
-              FeatureRule.header.showRecruiters && (<a href={formLinks.recruiters} target="_blank" className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
-                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
+            {FeatureRule.header.showRecruiters && (
+              <a
+                href={formLinks.recruiters}
+                target="_blank"
+                className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
+                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out"
+              >
                 Become a Roast Master
-              </a>)
-            }
-            {FeatureRule.header.showTickets && (<a href={formLinks.tickets} target="_blank" className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
-                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
-              Buy Tickets
-            </a>)}
+              </a>
+            )}
+            {FeatureRule.header.showTickets && (
+              <a
+                href={formLinks.tickets}
+                target="_blank"
+                className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button 
+                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out"
+              >
+                Buy Tickets
+              </a>
+            )}
 
-            <a href={formLinks.participants} target="_blank" className="bg-secondary rounded-full border-2 border-black px-12 py-4 shadow-button 
-                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out">
+            <a
+              href={formLinks.participants}
+              target="_blank"
+              className="bg-secondary rounded-full border-2 border-black px-12 py-4 shadow-button 
+                     transform hover:translate-y-1 hover:shadow-md transition-all duration-150 ease-in-out"
+            >
               Apply as Participant
             </a>
           </div>
@@ -70,7 +87,6 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
