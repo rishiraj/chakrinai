@@ -1,10 +1,12 @@
+import { merriweatherSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-primary text-white py-12 px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+    <footer className={cn(merriweatherSans.className, merriweatherSans.variable, "bg-primary text-white py-12 px-8")}>
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-left">
           {/* STAY UP TO DATE Column */}
           <div className="space-y-6">
             <h3 className="font-bold text-3xl uppercase">Stay Up To Date</h3>
@@ -15,9 +17,9 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full px-4 py-3 pr-10 bg-secondary text-white placeholder-[#A0522D] rounded-md focus:outline-none focus:ring-2 focus:ring-white text-lg"
+                className="w-full px-4 py-3 pr-10 bg-secondary text-black placeholder-[#A0522D] rounded-full focus:outline-none focus:ring-2 focus:ring-white text-lg"
               />
-              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-white hover:text-yellow-400 transition-colors text-xl">
+              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-black hover:text-yellow-400 transition-colors text-xl">
                 →
               </button>
             </div>
@@ -90,16 +92,9 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div>
                 <p className="text-lg font-semibold">Email Address:</p>
-                <p className="text-lg">chakrinei@gmail.com</p>
+                <p className="text-lg">chakrinaishow@gmail.com</p>
               </div>
-              <div>
-                <p className="text-lg font-semibold">Mailing Address:</p>
-                <div className="text-lg space-y-1">
-                  <p>John E. Brown</p>
-                  <p>4383 Saint James Drive</p>
-                  <p>Harrisburg, PA 17102</p>
-                </div>
-              </div>
+
             </div>
           </div>
 

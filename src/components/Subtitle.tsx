@@ -2,16 +2,7 @@ import React from "react";
 
 const Subtitle: React.FC = () => {
   return (
-    <div className="relative w-full py-24 bg-primary">
-      {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.3) 60px, rgba(255,255,255,0.3) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.3) 60px, rgba(255,255,255,0.3) 61px)`,
-          }}
-        ></div>
-      </div>
+    <div className="relative w-full py-24">
 
       {/* Paper Bucket */}
       {/* <div className="absolute right-8 top-1/2 -translate-y-1/2">
@@ -32,15 +23,15 @@ const Subtitle: React.FC = () => {
           </div>
         </div>
         {/* Paper Plane with dashed path */}
-        <div className="flex flex-row items-start w-full justify-right bottom-0 bg-black mt-10">
-          
+        <div className="flex flex-row items-start w-fit justify-right bottom-0 mt-10 relative mr-auto xl:scale-150">
+
           <img
-            className="w-64 h-auto  opacity-60"
+            className="w-64 h-auto"
             src="/assets/paer plane dashed path.svg"
             alt="Flight path"
           />
           <img
-            className="w-32 h-auto"
+            className="w-32 h-auto absolute top-0 right-0 translate-x-3/4 -translate-y-1/2"
             src="/assets/paper plane.png"
             alt="Paper plane"
           />

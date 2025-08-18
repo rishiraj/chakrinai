@@ -41,7 +41,7 @@ module.exports = {
         'product-sans': ['ProductSans-Regular', 'sans-serif'],
         'dk-keswick': ['DkKeswick-Regular', 'serif'],
         'alumni-sans': ['AlumniSans-Medium', 'sans-serif'],
-        'inter': ['var(--font-inter)', 'sans-serif'],
+        'merriweather-sans': ['var(--font-merriweather-sans)', 'sans-serif'],
       },
       fontSize: {
         'hero': ['clamp(3rem,8vw,9rem)', { lineHeight: '1.1' }],

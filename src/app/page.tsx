@@ -9,30 +9,30 @@ import {
   ThankYou,
   Footer,
 } from "@/components";
+// import { getRoastMasters } from "@/data/roastMasters";
 
 export default function Home() {
   return (
-    <div className="bg-primary min-h-screen">
+    <div className="bg-primary min-h-screen relative">
+      {/* Background grid pattern */}
+      <div className="absolute inset-0 opacity-30 z-0">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.3) 60px, rgba(255,255,255,0.3) 63px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.3) 60px, rgba(255,255,255,0.3) 63px)`,
+          }}
+        ></div>
+      </div>
       {/* Header Component */}
       <Header />
-
       {/* Subtitle Component */}
       <Subtitle />
 
       {/* How It Works Component */}
       <HowItWorks />
 
-      {/* Decorative image */}
-      <div className="w-full flex justify-center py-16">
-        {/* <img
-          className="w-64 h-auto opacity-80"
-          src="/assets/human.svg"
-          alt="Decorative human figure"
-        /> */}
-      </div>
-
       {/* Roast Masters Component */}
-      {/* <RoastMasters /> */}
+      <RoastMasters />
 
       {/* Testimonials Component */}
       {/* <Testimonials /> */}
@@ -42,6 +42,7 @@ export default function Home() {
 
       {/* Footer Component */}
       <ThankYou />
+
 
       <Footer />
     </div>

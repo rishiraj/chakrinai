@@ -1,4 +1,11 @@
 import localFont from 'next/font/local'
+import { Merriweather_Sans } from 'next/font/google'
+
+export const merriweatherSans = Merriweather_Sans({
+    variable: '--font-merriweather-sans',
+    subsets: ['latin'],
+    display: 'swap',
+})
 
 export const awesomeSerif = localFont({
     src: '../../public/assets/fonts/AwesomeSerif.otf',
