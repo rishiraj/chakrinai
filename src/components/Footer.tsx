@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-[#A0522D] text-center">
-          <p className="text-lg text-[#D2691E]">© 2025, chakri nei community</p>
+          <p className="text-lg text-[#D2691E]">© 2025, Chakri Nai</p>
         </div>
       </div>
     </footer>

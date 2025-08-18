@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { useState } from "react";
-import { Menu, X, Mic } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import Logo from '../../public/assets/logo.png'
-export default function Navbar() {
+import Logo from '../../public/assets/logo.png';
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -124,4 +125,6 @@ export default function Navbar() {
       </div>
     </div>
   );
-}
+};
+
+export default Navbar;

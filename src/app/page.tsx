@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
   Header,
@@ -38,7 +39,7 @@ export default function Home() {
       {/* <Testimonials /> */}
 
       {/* Reviews Component */}
-      <Reviews />
+      {/* <Reviews /> */}
 
       {/* Footer Component */}
       <ThankYou />

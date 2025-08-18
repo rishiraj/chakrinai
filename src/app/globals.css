@@ -19,4 +19,31 @@
 
 @layer utilities {
   /* Custom utility styles can go here */
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Optimize animations for better performance - Transform-based only */
+  .animate-optimized {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Apply optimization to all motion elements */
+  [data-framer-motion] {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }
