@@ -1,6 +1,26 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const Reviews: React.FC = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  // Colors inspired by the reference image
+  const layerColors = ["#B73A2B", "#E46A3A", "#F08A3B"];
+
+  // Compute slot (0=top,1=middle,2=bottom) for each layer based on active index
+  const getSlotForLayer = (layer: number) => (layer - activeIndex + 3) % 3;
+
+  const spring = {
+    type: "spring",
+    stiffness: 400,
+    damping: 34,
+    mass: 0.6,
+  } as const;
+
+  const handleAdvance = () => setActiveIndex((prev) => (prev + 1) % 3);
+
   return (
     <div className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6 relative mt-8">
       {/* Background grid pattern */}
@@ -23,54 +43,80 @@ const Reviews: React.FC = () => {
         </div>
 
         <div className="flex justify-center">
-          {/* Stack of cards container */}
-          <div className="relative">
-            {/* Bottom card (peeking out) */}
-            <div className="absolute -bottom-2 -right-2 w-[calc(100%-20px)] h-[calc(100%-20px)] bg-orange-600 rounded-[20px] border-2 border-black transform rotate-1"></div>
+          {/* Stack container sized to the top card */}
+          <div className="relative w-[28rem] md:w-[32rem] lg:w-[60rem] h-80 md:h-96 lg:h-[28rem]">
+            {[0, 1, 2].map((layer) => {
+              const slot = getSlotForLayer(layer);
+              const isTop = slot === 0;
 
-            {/* Middle card */}
-            <div className="absolute -bottom-1 -right-1 w-[calc(100%-10px)] h-[calc(100%-10px)] bg-orange-500 rounded-[20px] border-2 border-black transform rotate-0.5">
-              {/* Review tab for middle card */}
-              <div className="absolute -top-3 -left-3 bg-white rounded-full border-2 border-black py-2 px-6">
-                <div className="text-black font-dk-keswick text-xl font-normal">
-                  review
-                </div>
-              </div>
-            </div>
+              // Slot positions relative to container
+              const positions = [
+                // top (frontmost): tilt to lower-left (more)
+                { x: 0, y: 0, rotate: -7, scale: 0.995 },
+                // middle: tilt to lower-right
+                { x: 0, y: 0, rotate: 7, scale: 0.99 },
+                // bottom: tilt to lower-left (less)
+                { x: 0, y: 0, rotate: 0, scale: 1 },
+              ];
 
-            {/* Top card (main content) */}
-            <div className="relative bg-orange-500 rounded-[20px] border-2 border-black p-8 md:p-12 w-[28rem] md:w-[32rem] lg:w-[60rem] h-80 md:h-96 lg:h-[28rem] transform -rotate-1 hover:rotate-0 transition-transform duration-300 shadow-lg">
-              {/* Review tab */}
-              <div className="absolute -top-3 -left-3 bg-white rounded-full border-2 border-black py-2 px-6 shadow-md">
-                <div className="text-black font-dk-keswick text-xl font-normal">
-                  review
-                </div>
-              </div>
+              const { x, y, rotate, scale } = positions[slot];
 
-              {/* Horizontal line */}
-              <div className="border-t-2 border-black mb-8 mt-4"></div>
+              return (
+                <motion.div
+                  key={layer}
+                  className={`absolute inset-0 rounded-[20px] border-2 border-black shadow-lg ${
+                    isTop ? "cursor-pointer" : ""
+                  }`}
+                  style={{ backgroundColor: layerColors[layer] }}
+                  initial={false}
+                  animate={{ x, y, rotate, scale, zIndex: 30 - slot * 10 }}
+                  whileHover={isTop ? { rotate: -0.5, y: -4 } : undefined}
+                  transition={spring}
+                  onClick={isTop ? handleAdvance : undefined}
+                  role={isTop ? "button" : undefined}
+                  aria-label={isTop ? "Show next review" : undefined}
+                >
+                  {/* Review bubble: show on top and middle layer */}
+                  {(slot === 0 || slot === 1) && (
+                    <div className="absolute top-3 left-12 bg-white rounded-full border-2 border-black py-2  px-6 shadow-md">
+                      <div className="text-black font-dk-keswick text-xl font-normal">
+                        review
+                      </div>
+                    </div>
+                  )}
 
-              {/* Review text */}
-              <div className="text-black font-caption-handwriting text-lg md:text-4xl font-normal italic leading-relaxed mb-8">
-                &ldquo;This app makes managing my portfolio so
-                <br />
-                easy. I love the real-time updates and seamless
-                <br />
-                transactions. It&apos;s the best crypto app I&apos;ve ever
-                <br />
-                used!&rdquo;
-              </div>
+                  {/* Content only on the top card */}
+                  {isTop && (
+                    <div className="relative w-full h-full p-8 md:p-16">
+                      {/* Horizontal line */}
+                      <div className="border-t-2 border-black mb-8 mt-4"></div>
 
-              {/* Attribution and role */}
-              <div className="flex flex-col items-start justify-between">
-                <div className="text-black font-caption-handwriting text-2xl md:text-4xl font-normal italic mb-4">
-                  (John Doe)
-                </div>
-                <div className="text-yellow-500 font-alumni-sans text-lg md:text-4xl font-medium italic self-end">
-                  Developer
-                </div>
-              </div>
-            </div>
+                      {/* Review text */}
+                      <div className="text-black font-caption-handwriting text-lg md:text-4xl font-normal italic leading-relaxed mb-8">
+                        &ldquo;This app makes managing my portfolio so
+                        <br />
+                        easy. I love the real-time updates and seamless
+                        <br />
+                        transactions. It&apos;s the best crypto app I&apos;ve
+                        ever
+                        <br />
+                        used!&rdquo;
+                      </div>
+
+                      {/* Attribution and role */}
+                      <div className="flex flex-col items-start justify-between">
+                        <div className="text-black font-caption-handwriting text-2xl md:text-4xl font-normal italic mb-4">
+                          (John Doe)
+                        </div>
+                        <div className="text-yellow-500 font-alumni-sans text-lg md:text-4xl font-medium italic self-end">
+                          Developer
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

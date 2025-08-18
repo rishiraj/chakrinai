@@ -1,4 +1,8 @@
 {
+    "sections": {
+        "header": true,
+        "subtitle": true
+    },
     "header": {
         "showTickets": false,
         "showRecruiters": true
