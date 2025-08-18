@@ -20,7 +20,8 @@ export const handwriting = localFont({
 })
 
 export const fitfully = localFont({
-    src: '../../public/assets/fonts/FitfullyRegular.ttf',
+    src: '../../public/assets/fonts/AwesomeSerif.otf',
+    // src: '../../public/assets/fonts/FitfullyRegular.ttf',
     variable: '--font-fitfully',
     display: 'swap',
 })
