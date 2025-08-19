@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Header,
@@ -14,7 +15,7 @@ import FeatureRule from "../../public/content/feature.rule.json";
 
 export default function Home() {
   return (
-    <div className="bg-primary min-h-screen relative">
+    <div className="bg-primary min-h-screen relative w-full">
       {/* Background grid pattern */}
       <div className="absolute inset-0 opacity-30 z-0">
         <div
@@ -42,9 +43,9 @@ export default function Home() {
       {FeatureRule.sections.reviews && <Reviews />}
 
       {/* Footer Component */}
-      {FeatureRule.sections.footer && <ThankYou />}
+      {FeatureRule.sections.thankyou && <ThankYou />}
 
-      <Footer />
+      {FeatureRule.sections.footer && <Footer />}
     </div>
   );
 }

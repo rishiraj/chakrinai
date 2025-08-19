@@ -23,12 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${merriweatherSans.variable} ${awesomeSerif.variable} ${handwriting.variable} ${fitfully.variable} ${merriweatherSans.className} antialiased`}
+        className={`${merriweatherSans.variable} ${awesomeSerif.variable} ${handwriting.variable} ${fitfully.variable} ${merriweatherSans.className} antialiased bg-primary`}
       >
         <GoogleAnalytics />
         <PostHogAnalytics />
         {/* <Navbar /> */}
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen w-full">{children}</main>
       </body>
     </html>
   );

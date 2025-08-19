@@ -6,7 +6,8 @@
         "roastMasters": true,
         "testimonials": false,
         "reviews": false,
-        "footer": true
+        "thankyou": true,
+        "footer": false
     },
     "header": {
         "showTickets": false,
