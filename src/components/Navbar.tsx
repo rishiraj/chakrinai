@@ -7,6 +7,7 @@ import Logo from "../../public/assets/logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("home");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const scrollToSection = useCallback((hash: string) => {
     const id = hash.startsWith("#") ? hash.slice(1) : hash;
@@ -17,7 +18,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const sectionIds = ["home", "how-it-works", "roast-masters"] as const;
-    const navbarHeight = 100;
+    const navbarHeight = isScrolled ? 70 : 100; // Adjust navbar height based on scroll state
     const topPadding = 64;
     const totalOffset = navbarHeight + topPadding + 20;
 
@@ -61,13 +62,31 @@ const Navbar = () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
+  }, [isScrolled]);
+
+  // Add scroll listener for navbar state
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50); // Trigger when scrolled more than 50px
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="fixed top-4 left-0 right-0 z-50 w-full flex justify-center pt-32">
+    <div
+      className={`fixed left-0 right-0 z-50 w-full flex justify-center transition-all duration-700 ${
+        isScrolled ? "-top-4 pt-16" : "top-4 pt-32"
+      }`}
+    >
       {/* Main Navigation Bar */}
-      <nav className="bg-primary rounded-full px-6 sm:px-8 lg:px-12 py-4 sm:py-6 w-full max-w-5xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm h-[100px]">
-        {/* bg-primary rounded-full px-6 sm:px-8 lg:px-12 py-4 sm:py-6 w-full max-w-6xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm h-[100px] */}
+      <nav
+        className={`bg-primary rounded-full px-6 sm:px-8 lg:px-12 py-4 sm:py-6 w-full max-w-5xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm transition-all duration-700 ${
+          isScrolled ? "h-[70px]" : "h-[100px]"
+        }`}
+      >
         {/* Left Navigation Items - Desktop */}
         <div className="hidden lg:flex items-center gap-2 xl:gap-4">
           <a
@@ -76,7 +95,9 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("home");
             }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold text-2xl xl:text-4xl font-caption-handwriting transition-all duration-300 ${
+            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${
+              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+            } ${
               activeId === "home"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -90,7 +111,9 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("how-it-works");
             }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold text-2xl xl:text-4xl font-caption-handwriting transition-all duration-300 ${
+            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${
+              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+            } ${
               activeId === "how-it-works"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -103,17 +126,23 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white lg:hidden p-2 rounded-full hover:bg-white/10 transition-all duration-300"
+          className="text-white lg:hidden p-2 rounded-full hover:bg-white/10 transition-all duration-700"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? (
+            <X size={isScrolled ? 24 : 28} />
+          ) : (
+            <Menu size={isScrolled ? 24 : 28} />
+          )}
         </button>
 
         {/* Center Logo */}
         <Image
           src={Logo}
           alt="Chakri Nai Logo"
-          className="w-56 h-auto ml-auto lg:mx-auto"
+          className={`h-auto ml-auto lg:mx-auto transition-all duration-700 ${
+            isScrolled ? "w-40" : "w-56"
+          }`}
         />
 
         {/* Right Navigation Items - Desktop */}
@@ -124,7 +153,9 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("roast-masters");
             }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold text-2xl xl:text-4xl font-caption-handwriting transition-all duration-300 ${
+            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${
+              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+            } ${
               activeId === "roast-masters"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -134,7 +165,9 @@ const Navbar = () => {
           </a>
           <a
             href="#tickets"
-            className="text-white rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold text-2xl xl:text-4xl font-caption-handwriting hover:bg-white/10 transition-all duration-300"
+            className={`text-white rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting hover:bg-white/10 transition-all duration-700 ${
+              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+            }`}
           >
             Tickets
           </a>
@@ -154,7 +187,7 @@ const Navbar = () => {
               scrollToSection("home");
               setIsOpen(false);
             }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-300 w-4/5 text-center ${
+            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${
               activeId === "home"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -169,7 +202,7 @@ const Navbar = () => {
               scrollToSection("how-it-works");
               setIsOpen(false);
             }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-300 w-4/5 text-center ${
+            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${
               activeId === "how-it-works"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -184,7 +217,7 @@ const Navbar = () => {
               scrollToSection("roast-masters");
               setIsOpen(false);
             }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-300 w-4/5 text-center ${
+            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${
               activeId === "roast-masters"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -195,7 +228,7 @@ const Navbar = () => {
           <a
             href="#tickets"
             onClick={() => setIsOpen(false)}
-            className="text-white rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting hover:bg-white/10 transition-all duration-300 w-4/5 text-center"
+            className="text-white rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting hover:bg-white/10 transition-all duration-700 w-4/5 text-center"
           >
             Tickets
           </a>
@@ -211,7 +244,7 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("home");
             }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-300 shadow-md ${
+            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 shadow-md ${
               activeId === "home"
                 ? "bg-white text-primary hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -225,7 +258,7 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("how-it-works");
             }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-300 ${
+            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${
               activeId === "how-it-works"
                 ? "bg-white text-primary hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -239,7 +272,7 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("roast-masters");
             }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-300 ${
+            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${
               activeId === "roast-masters"
                 ? "bg-white text-primary hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
@@ -249,7 +282,7 @@ const Navbar = () => {
           </a>
           <a
             href="#tickets"
-            className="text-white rounded-full px-6 py-2 font-bold text-base font-caption-handwriting hover:bg-white/10 transition-all duration-300"
+            className="text-white rounded-full px-6 py-2 font-bold text-base font-caption-handwriting hover:bg-white/10 transition-all duration-700"
           >
             Tickets
           </a>
