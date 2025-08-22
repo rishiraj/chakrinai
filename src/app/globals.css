@@ -2,14 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+  }
+
   * {
     @apply border-neutral-gray-light outline-primary/50;
   }
 
   body {
-    @apply bg-neutral-cream text-neutral-black;
+    @apply text-neutral-black;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 60px,
+        rgba(255, 255, 255, 0.1) 60px,
+        rgba(255, 255, 255, 0.1) 63px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(255, 255, 255, 0.1) 60px,
+        rgba(255, 255, 255, 0.1) 63px
+      );
   }
 }
 
@@ -22,7 +40,6 @@
 
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {

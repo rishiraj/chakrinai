@@ -1,4 +1,14 @@
 {
+    "sections": {
+        "header": true,
+        "subtitle": true,
+        "howItWorks": true,
+        "roastMasters": true,
+        "testimonials": false,
+        "reviews": false,
+        "thankyou": true,
+        "footer": false
+    },
     "header": {
         "showTickets": false,
         "showRecruiters": true

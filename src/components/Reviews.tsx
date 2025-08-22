@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -45,6 +47,37 @@ const cardStackVariants = {
 // Removed unused cardVariants - using inline variants instead
 
 const Reviews: React.FC = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  // Colors inspired by the reference image
+  const layerColors = ["#D32F2F", "#FC7228", "#F9A825"];
+
+  // Compute slot (0=top,1=middle,2=bottom) for each layer based on active index
+  const getSlotForLayer = (layer: number) => (layer - activeIndex + 3) % 3;
+
+  const spring = {
+    type: "spring",
+    stiffness: 400,
+    damping: 34,
+    mass: 0.6,
+  } as const;
+
+  const handleAdvance = () => setActiveIndex((prev) => (prev + 1) % 3);
+
+  // Load reviews from public/content/reviews.json
+  const [reviews, setReviews] = React.useState<
+    { id: string; quote: string; author: string; role: string }[]
+  >([]);
+
+  React.useEffect(() => {
+    fetch("/content/reviews.json")
+      .then((r) => r.json())
+      .then((data) => Array.isArray(data) && setReviews(data))
+      .catch(() => {
+        /* ignore; fall back to placeholders */
+      });
+  }, []);
+
   return (
     <motion.div
       className="bg-neutral-cream rounded-[80px] w-full max-w-7xl mx-auto py-24 px-6 relative mt-8"
