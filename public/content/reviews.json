@@ -1,0 +1,20 @@
+[
+    {
+        "id": "r1",
+        "quote": "This app makes managing my portfolio so easy. I love the real-time updates and seamless transactions. It's the best crypto app I've ever used!",
+        "author": "John Doe",
+        "role": "Developer"
+    },
+    {
+        "id": "r2",
+        "quote": "I shipped a trading bot in a weekend thanks to the clean APIs and blazing-fast data. Support has been fantastic.",
+        "author": "Priya Sharma",
+        "role": "Quant Engineer"
+    },
+    {
+        "id": "r3",
+        "quote": "Finally a crypto tool that feels delightful. The UX is crisp and the insights are actionable.",
+        "author": "Alex Kim",
+        "role": "Product Manager"
+    }
+]

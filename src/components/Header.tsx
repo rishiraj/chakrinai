@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import React from 'react';
-import RedStroke from '../../public/assets/red-stroke.png';
+import Image from "next/image";
+import React from "react";
+import RedStroke from "../../public/assets/red-stroke.png";
 import Marquee from "react-fast-marquee";
-import Navbar from './Navbar';
-import { formLinks } from '@/data/forms';
-import FeatureRule from '../../public/content/feature.rule.json';
-import { motion } from 'framer-motion';
-import HumanImage from '../../public/assets/human.svg'
+import Navbar from "./Navbar";
+import { formLinks } from "@/data/forms";
+import FeatureRule from "../../public/content/feature.rule.json";
+import { motion } from "framer-motion";
+import HumanImage from "../../public/assets/human.svg";
 // Animation variants - Transform-based only for better performance
 const containerVariants = {
   hidden: { scale: 0.8, y: 100 },
@@ -17,9 +17,9 @@ const containerVariants = {
       duration: 0.8,
       ease: "backOut" as const,
       staggerChildren: 0.2,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const itemVariants = {
@@ -30,9 +30,9 @@ const itemVariants = {
     rotate: 0,
     transition: {
       duration: 0.7,
-      ease: "backOut" as const
-    }
-  }
+      ease: "backOut" as const,
+    },
+  },
 };
 
 const heroTextVariants = {
@@ -43,9 +43,9 @@ const heroTextVariants = {
     rotate: 0,
     transition: {
       duration: 0.9,
-      ease: "backOut" as const
-    }
-  }
+      ease: "backOut" as const,
+    },
+  },
 };
 
 const buttonVariants = {
@@ -57,8 +57,8 @@ const buttonVariants = {
     transition: {
       duration: 0.6,
       type: "spring" as const,
-      bounce: 0.6
-    }
+      bounce: 0.6,
+    },
   },
   hover: {
     scale: 1.15,
@@ -66,50 +66,46 @@ const buttonVariants = {
     rotate: 2,
     transition: {
       duration: 0.2,
-      ease: "backOut" as const
-    }
+      ease: "backOut" as const,
+    },
   },
   tap: {
     scale: 0.9,
     y: 4,
     rotate: -1,
     transition: {
-      duration: 0.1
-    }
-  }
+      duration: 0.1,
+    },
+  },
 };
 
 const Header: React.FC = () => {
   return (
-
-    <div className="w-full bg-primary pt-16">
+    <div id="home" className="w-full  pt-16">
+      {/* Keep fixed Navbar outside transformed containers */}
+      <Navbar />
       <motion.div
         className="bg-neutral-cream rounded-t-[80px] w-11/12 mx-auto flex flex-col items-center gap-16 md:gap-24 px-4 py-12 md:py-20 relative overflow-hidden"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-
         <motion.div
           className="w-full h-auto absolute left-0 bottom-0 -translate-x-1/2 opacity-60 -z-0"
           initial={{ scale: 1.3, rotate: -5, y: 50 }}
           animate={{ scale: 1, rotate: 0, y: 0 }}
-          transition={{ duration: 1.2, ease: "backOut" }}>
+          transition={{ duration: 1.2, ease: "backOut" }}
+        >
           <Image
-            className='w-full h-auto'
+            className="w-full h-auto"
             src={HumanImage}
             alt="Background pattern"
-
           />
-        </motion.div>
-        {/* Navigation Section Wrapper  */}
-        <motion.div variants={itemVariants}>
-          <Navbar />
         </motion.div>
 
         {/* Hero Content Section */}
         <motion.div
-          className="flex flex-col items-center gap-16 text-center z-10"
+          className="flex flex-col items-center gap-16 text-center z-10 pt-40"
           variants={itemVariants}
         >
           {/* Hero Text */}
@@ -125,9 +121,9 @@ const Header: React.FC = () => {
                 hidden: {},
                 visible: {
                   transition: {
-                    staggerChildren: 0.2
-                  }
-                }
+                    staggerChildren: 0.2,
+                  },
+                },
               }}
             >
               <motion.h2 variants={heroTextVariants}>Pitch.</motion.h2>
@@ -144,13 +140,16 @@ const Header: React.FC = () => {
                     duration: 1.0,
                     ease: "backOut",
                     type: "spring",
-                    bounce: 0.4
+                    bounce: 0.4,
                   }}
-
                 >
-                  <Image src={RedStroke} alt="" className='scale-90 lg:scale-100' />
+                  <Image
+                    src={RedStroke}
+                    alt=""
+                    className="scale-90 lg:scale-100"
+                  />
                 </motion.div>
-                <span className='absolute'> Get Hired.</span>
+                <span className="absolute"> Get Hired.</span>
               </motion.h2>
             </motion.div>
             <motion.p
@@ -171,26 +170,23 @@ const Header: React.FC = () => {
               visible: {
                 transition: {
                   staggerChildren: 0.1,
-                  delayChildren: 0.3
-                }
-              }
+                  delayChildren: 0.3,
+                },
+              },
             }}
           >
-
-            {
-              FeatureRule.header.showRecruiters && (
-                <motion.a
-                  href={formLinks.recruiters}
-                  target="_blank"
-                  className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button"
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  Become a Roast Master
-                </motion.a>
-              )
-            }
+            {FeatureRule.header.showRecruiters && (
+              <motion.a
+                href={formLinks.recruiters}
+                target="_blank"
+                className="bg-white rounded-full border-2 border-black px-12 py-4 shadow-button"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                Become a Roast Master
+              </motion.a>
+            )}
             {FeatureRule.header.showTickets && (
               <motion.a
                 href={formLinks.tickets}

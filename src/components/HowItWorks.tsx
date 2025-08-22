@@ -13,9 +13,9 @@ const containerVariants = {
       duration: 0.6,
       ease: "backOut" as const,
       staggerChildren: 0.2,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const titleVariants = {
@@ -26,9 +26,9 @@ const titleVariants = {
     rotate: 0,
     transition: {
       duration: 0.8,
-      ease: "backOut" as const
-    }
-  }
+      ease: "backOut" as const,
+    },
+  },
 };
 
 const stepVariants = {
@@ -39,9 +39,9 @@ const stepVariants = {
     rotate: 0,
     transition: {
       duration: 0.9,
-      ease: "backOut" as const
-    }
-  }
+      ease: "backOut" as const,
+    },
+  },
 };
 
 const floatingVariants = {
@@ -52,21 +52,21 @@ const floatingVariants = {
     transition: {
       duration: 4,
       repeat: Infinity,
-      ease: "easeInOut" as const
-    }
-  }
+      ease: "easeInOut" as const,
+    },
+  },
 };
 
 const HowItWorks: React.FC = () => {
   return (
     <motion.div
-      className="bg-neutral-cream rounded-[80px] w-11/12 mx-auto py-24 px-6 relative"
+      id="how-it-works"
+      className="bg-neutral-cream rounded-[80px] w-11/12 mx-auto py-24 px-6 relative scroll-mt-[120px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-
       {/* Paper Bucket */}
       <motion.div
         className="absolute -top-16 right-6"
@@ -83,7 +83,7 @@ const HowItWorks: React.FC = () => {
             duration: 1.2,
             ease: "backOut",
             type: "spring",
-            bounce: 0.6
+            bounce: 0.6,
           }}
           viewport={{ once: true }}
         />
@@ -101,9 +101,9 @@ const HowItWorks: React.FC = () => {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.2
-            }
-          }
+              staggerChildren: 0.2,
+            },
+          },
         }}
       >
         {/* Step 1: Step Onto the Stage */}
@@ -117,12 +117,12 @@ const HowItWorks: React.FC = () => {
               scale: 1.2,
               rotate: 15,
               y: -10,
-              transition: { duration: 0.3, ease: "backOut" }
+              transition: { duration: 0.3, ease: "backOut" },
             }}
             whileTap={{
               scale: 0.95,
               rotate: -5,
-              transition: { duration: 0.1 }
+              transition: { duration: 0.1 },
             }}
           >
             <motion.img
@@ -132,7 +132,7 @@ const HowItWorks: React.FC = () => {
               whileHover={{
                 scale: 1.15,
                 rotate: -10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             />
           </motion.div>
@@ -147,15 +147,21 @@ const HowItWorks: React.FC = () => {
                 transition: {
                   delay: 0.2,
                   duration: 0.6,
-                  ease: "backOut"
-                }
-              }
+                  ease: "backOut",
+                },
+              },
             }}
           >
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
               Step Onto the Stage
             </h2>
-            <p className={cn(merriweatherSans.className, merriweatherSans.variable, "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal")}>
+            <p
+              className={cn(
+                merriweatherSans.className,
+                merriweatherSans.variable,
+                "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
+              )}
+            >
               Step into the ring with your pitch and resume.
             </p>
           </motion.div>
@@ -172,12 +178,12 @@ const HowItWorks: React.FC = () => {
               scale: 1.2,
               rotate: -15,
               y: -10,
-              transition: { duration: 0.3, ease: "backOut" }
+              transition: { duration: 0.3, ease: "backOut" },
             }}
             whileTap={{
               scale: 0.95,
               rotate: 5,
-              transition: { duration: 0.1 }
+              transition: { duration: 0.1 },
             }}
           >
             <motion.img
@@ -187,7 +193,7 @@ const HowItWorks: React.FC = () => {
               whileHover={{
                 scale: 1.15,
                 rotate: 10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             />
           </motion.div>
@@ -202,15 +208,21 @@ const HowItWorks: React.FC = () => {
                 transition: {
                   delay: 0.2,
                   duration: 0.6,
-                  ease: "backOut"
-                }
-              }
+                  ease: "backOut",
+                },
+              },
             }}
           >
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
               Roast
             </h2>
-            <p className={cn(merriweatherSans.className, merriweatherSans.variable, "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal")}>
+            <p
+              className={cn(
+                merriweatherSans.className,
+                merriweatherSans.variable,
+                "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
+              )}
+            >
               Startup founders, comedians, and industry icons roast your
               pitch—with heart and humor.
             </p>
@@ -228,12 +240,12 @@ const HowItWorks: React.FC = () => {
               scale: 1.2,
               rotate: 15,
               y: -10,
-              transition: { duration: 0.3, ease: "backOut" }
+              transition: { duration: 0.3, ease: "backOut" },
             }}
             whileTap={{
               scale: 0.95,
               rotate: -5,
-              transition: { duration: 0.1 }
+              transition: { duration: 0.1 },
             }}
           >
             <motion.img
@@ -243,7 +255,7 @@ const HowItWorks: React.FC = () => {
               whileHover={{
                 scale: 1.15,
                 rotate: -10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             />
           </motion.div>
@@ -258,15 +270,21 @@ const HowItWorks: React.FC = () => {
                 transition: {
                   delay: 0.2,
                   duration: 0.6,
-                  ease: "backOut"
-                }
-              }
+                  ease: "backOut",
+                },
+              },
             }}
           >
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
               Land Your Next Role
             </h2>
-            <p className={cn(merriweatherSans.className, merriweatherSans.variable, "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal")}>
+            <p
+              className={cn(
+                merriweatherSans.className,
+                merriweatherSans.variable,
+                "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
+              )}
+            >
               Walk away with real interviews, internships—or even job offers.
             </p>
           </motion.div>

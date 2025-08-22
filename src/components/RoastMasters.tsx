@@ -1,10 +1,10 @@
-import { formLinks } from '@/data/forms';
-import { Sprout } from 'lucide-react';
-import React from 'react';
-import MicImage from '../../public/assets/mic.svg'
-import ResumeImage from '../../public/assets/resume.svg'
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { formLinks } from "@/data/forms";
+import { Sprout } from "lucide-react";
+import React from "react";
+import MicImage from "../../public/assets/mic.svg";
+import ResumeImage from "../../public/assets/resume.svg";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 // Animation variants - Transform-based only for better performance
 const containerVariants = {
@@ -16,9 +16,9 @@ const containerVariants = {
       duration: 0.7,
       ease: "backOut" as const,
       staggerChildren: 0.15,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const titleVariants = {
@@ -29,9 +29,9 @@ const titleVariants = {
     rotate: 0,
     transition: {
       duration: 0.9,
-      ease: "backOut" as const
-    }
-  }
+      ease: "backOut" as const,
+    },
+  },
 };
 
 const cardVariants = {
@@ -42,9 +42,9 @@ const cardVariants = {
     rotate: 0,
     transition: {
       duration: 0.8,
-      ease: "backOut" as const
-    }
-  }
+      ease: "backOut" as const,
+    },
+  },
 };
 
 const floatingVariants = {
@@ -55,9 +55,9 @@ const floatingVariants = {
     transition: {
       duration: 5,
       repeat: Infinity,
-      ease: "easeInOut" as const
-    }
-  }
+      ease: "easeInOut" as const,
+    },
+  },
 };
 
 interface RoastMaster {
@@ -77,14 +77,13 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
 
   return (
     <motion.div
-      className="w-full py-24 text-center relative"
+      id="roast-masters"
+      className="w-full py-24 text-center relative scroll-mt-[120px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-
-
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="text-white font-caption-handwriting text-4xl md:text-6xl lg:text-7xl font-normal italic mb-8"
@@ -108,9 +107,9 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
               hidden: {},
               visible: {
                 transition: {
-                  staggerChildren: 0.15
-                }
-              }
+                  staggerChildren: 0.15,
+                },
+              },
             }}
           >
             {roastMasters.map((master, index) => (
@@ -121,7 +120,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                 whileHover={{
                   scale: 1.05,
                   rotate: index % 2 === 0 ? 2 : -2,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -146,7 +145,11 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     transition={{ delay: 0.5, duration: 0.5, ease: "backOut" }}
                     whileHover={{ rotate: 15, scale: 1.1 }}
                   >
-                    <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-6 h-6 text-primary"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                     </svg>
                   </motion.div>
@@ -182,10 +185,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
           </motion.div>
         ) : (
           // Recruitment section when no data is available
-          <motion.div
-            className="w-11/12 mx-auto"
-            variants={cardVariants}
-          >
+          <motion.div className="w-11/12 mx-auto" variants={cardVariants}>
             <motion.div
               className="bg-secondary rounded-[60px] p-12 md:p-16 relative"
               whileHover={{ scale: 1.02 }}
@@ -205,10 +205,10 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     duration: 1.0,
                     ease: "backOut",
                     type: "spring",
-                    bounce: 0.6
+                    bounce: 0.6,
                   }}
                 >
-                  <Image src={MicImage} alt='mic' className='size-40' />
+                  <Image src={MicImage} alt="mic" className="size-40" />
                 </motion.div>
               </motion.div>
               <motion.div
@@ -220,9 +220,9 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     transition: {
                       duration: 5,
                       repeat: Infinity,
-                      ease: "easeInOut" as const
-                    }
-                  }
+                      ease: "easeInOut" as const,
+                    },
+                  },
                 }}
                 animate="animate"
               >
@@ -234,10 +234,10 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     duration: 1.0,
                     ease: "backOut",
                     type: "spring",
-                    bounce: 0.6
+                    bounce: 0.6,
                   }}
                 >
-                  <Image src={ResumeImage} alt='resume' className='size-40' />
+                  <Image src={ResumeImage} alt="resume" className="size-40" />
                 </motion.div>
               </motion.div>
 
@@ -258,9 +258,9 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       transition: {
                         staggerChildren: 0.1,
                         duration: 0.6,
-                        ease: "backOut"
-                      }
-                    }
+                        ease: "backOut",
+                      },
+                    },
                   }}
                   initial="hidden"
                   animate="visible"
@@ -269,11 +269,19 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     className="w-24 h-24 bg-primary rounded-full mx-auto mb-6 flex items-center justify-center"
                     variants={{
                       hidden: { scale: 0, rotate: -180 },
-                      visible: { scale: 1, rotate: 0, transition: { duration: 0.6, ease: "backOut" } }
+                      visible: {
+                        scale: 1,
+                        rotate: 0,
+                        transition: { duration: 0.6, ease: "backOut" },
+                      },
                     }}
                     whileHover={{ scale: 1.1, rotate: 10 }}
                   >
-                    <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-12 h-12 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM17 12H13V16H11V12H7V10H11V6H13V10H17V12Z" />
                     </svg>
                   </motion.div>
@@ -285,8 +293,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                         y: 0,
                         scale: 1,
                         rotate: 0,
-                        transition: { duration: 0.6, ease: "backOut" }
-                      }
+                        transition: { duration: 0.6, ease: "backOut" },
+                      },
                     }}
                   >
                     Become a Roast Master
@@ -299,12 +307,13 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                         y: 0,
                         scale: 1,
                         rotate: 0,
-                        transition: { duration: 0.6, ease: "backOut" }
-                      }
+                        transition: { duration: 0.6, ease: "backOut" },
+                      },
                     }}
                   >
-                    Are you a startup founder, comedian, or industry expert with a knack for constructive roasting?
-                    Join our panel of Roast Masters and help shape the next generation of talent.
+                    Are you a startup founder, comedian, or industry expert with
+                    a knack for constructive roasting? Join our panel of Roast
+                    Masters and help shape the next generation of talent.
                   </motion.p>
                 </motion.div>
 
@@ -315,9 +324,9 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     visible: {
                       transition: {
                         staggerChildren: 0.1,
-                        delayChildren: 0.2
-                      }
-                    }
+                        delayChildren: 0.2,
+                      },
+                    },
                   }}
                   initial="hidden"
                   animate="visible"
@@ -330,8 +339,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                         y: 0,
                         scale: 1,
                         rotate: 0,
-                        transition: { duration: 0.6, ease: "backOut" }
-                      }
+                        transition: { duration: 0.6, ease: "backOut" },
+                      },
                     }}
                   >
                     <motion.div
@@ -339,7 +348,11 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       whileHover={{ scale: 1.1, rotate: 10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                       </svg>
                     </motion.div>
@@ -358,8 +371,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                         y: 0,
                         scale: 1,
                         rotate: 0,
-                        transition: { duration: 0.6, ease: "backOut" }
-                      }
+                        transition: { duration: 0.6, ease: "backOut" },
+                      },
                     }}
                   >
                     <motion.div
@@ -367,7 +380,11 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       whileHover={{ scale: 1.1, rotate: -10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
                       </svg>
                     </motion.div>
@@ -386,8 +403,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                         y: 0,
                         scale: 1,
                         rotate: 0,
-                        transition: { duration: 0.6, ease: "backOut" }
-                      }
+                        transition: { duration: 0.6, ease: "backOut" },
+                      },
                     }}
                   >
                     <motion.div
@@ -395,7 +412,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       whileHover={{ scale: 1.1, rotate: 10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Sprout className='text-white size-8' />
+                      <Sprout className="text-white size-8" />
                     </motion.div>
                     <h4 className="text-neutral-black font-caption-handwriting text-2xl lg:text-4xl font-normal italic mb-2">
                       Make an Impact
@@ -432,4 +449,4 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
   );
 };
 
-export default RoastMasters; 
+export default RoastMasters;

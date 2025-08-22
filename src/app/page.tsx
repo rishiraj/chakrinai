@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import {
   Header,
@@ -11,12 +11,13 @@ import {
   Footer,
 } from "@/components";
 // import { getRoastMasters } from "@/data/roastMasters";
+import FeatureRule from "../../public/content/feature.rule.json";
 
 export default function Home() {
   return (
-    <div className="bg-primary min-h-screen relative">
+    <div className="min-h-screen relative w-full">
       {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-30 z-0">
+      <div className="absolute inset-0 opacity-30 z-[-1]">
         <div
           className="w-full h-full"
           style={{
@@ -25,27 +26,26 @@ export default function Home() {
         ></div>
       </div>
       {/* Header Component */}
-      <Header />
+      {FeatureRule.sections.header && <Header />}
       {/* Subtitle Component */}
-      <Subtitle />
+      {FeatureRule.sections.subtitle && <Subtitle />}
 
       {/* How It Works Component */}
-      <HowItWorks />
+      {FeatureRule.sections.howItWorks && <HowItWorks />}
 
       {/* Roast Masters Component */}
-      <RoastMasters />
+      {FeatureRule.sections.roastMasters && <RoastMasters />}
 
       {/* Testimonials Component */}
       {/* <Testimonials /> */}
 
       {/* Reviews Component */}
-      {/* <Reviews /> */}
+      {FeatureRule.sections.reviews && <Reviews />}
 
       {/* Footer Component */}
-      <ThankYou />
+      {FeatureRule.sections.thankyou && <ThankYou />}
 
-
-      <Footer />
+      {FeatureRule.sections.footer && <Footer />}
     </div>
   );
 }
