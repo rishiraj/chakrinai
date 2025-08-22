@@ -95,8 +95,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
           className="text-secondary font-fitfully text-4xl md:text-6xl lg:text-8xl font-normal uppercase mb-16"
           variants={titleVariants}
         >
-          {hasRoastMasters ? "Meet " : "Join "}
-          the Roast Masters
+          {hasRoastMasters ? "শুধু জ্ঞান " : "শুধু জ্ঞান "}
+          দেবেন, না চাকরিও দেবেন?
         </motion.div>
 
         {hasRoastMasters ? (
@@ -311,9 +311,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       },
                     }}
                   >
-                    Are you a startup founder, comedian, or industry expert with
-                    a knack for constructive roasting? Join our panel of Roast
-                    Masters and help shape the next generation of talent.
+                    We're looking for founders, industry leaders, and comedians who can deliver brutal feedback with a punchline. If you believe in tough love and have the power to change a career in one night, we want you on the panel.
                   </motion.p>
                 </motion.div>
 
@@ -357,10 +355,10 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       </svg>
                     </motion.div>
                     <h4 className="text-neutral-black font-caption-handwriting text-2xl lg:text-4xl font-normal italic mb-2">
-                      Share Your Expertise
+                      Discover Raw Talent
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Guide job seekers with your industry knowledge
+                      Find Bengal's most resilient and creative minds before they're buried in a pile of CVs.
                     </p>
                   </motion.div>
                   <motion.div
@@ -389,10 +387,10 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       </svg>
                     </motion.div>
                     <h4 className="text-neutral-black font-caption-handwriting text-2xl lg:text-4xl font-normal italic mb-2">
-                      Build Your Brand
+                      Build a Real Brand
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Gain visibility and establish thought leadership
+                      Forget 'thought leadership'. Become a legend (or a beloved villain) in Kolkata's startup scene.
                     </p>
                   </motion.div>
                   <motion.div
@@ -415,10 +413,10 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       <Sprout className="text-white size-8" />
                     </motion.div>
                     <h4 className="text-neutral-black font-caption-handwriting text-2xl lg:text-4xl font-normal italic mb-2">
-                      Make an Impact
+                      Actually Make a Difference
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Help talented individuals land their dream jobs
+                      Don't just talk about the talent gap. Close it. Live on stage.
                     </p>
                   </motion.div>
                 </motion.div>

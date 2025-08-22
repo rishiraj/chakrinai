@@ -2,7 +2,7 @@ import React from "react";
 
 const Subtitle: React.FC = () => {
   return (
-    <div className="relative w-full py-24">
+    <div className="relative w-full pt-24 pb-2">
 
       {/* Paper Bucket */}
       {/* <div className="absolute right-8 top-1/2 -translate-y-1/2">
@@ -16,10 +16,10 @@ const Subtitle: React.FC = () => {
       <div className="container mx-auto px-6 text-center relative flex flex-col items-center justify-between">
         <div className="container relative">
           <div className="text-white font-caption-handwriting text-4xl md:text-6xl lg:text-7xl font-normal mb-8">
-            ( from strategy to execution )
+            ( the participants )
           </div>
           <div className="text-white font-fitfully text-6xl md:text-8xl lg:text-9xl font-normal uppercase leading-tight">
-            seen in your one stop shop
+            চাকরির ইন্টারভিউ, শুধু একটু বেশি ঝাল দিয়ে।
           </div>
         </div>
         {/* Paper Plane with dashed path */}

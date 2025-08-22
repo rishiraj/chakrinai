@@ -156,9 +156,9 @@ const Header: React.FC = () => {
               className="font-merriweather-sans text-base md:text-3xl  w-11/12 lg:max-w-4xl px-8"
               variants={heroTextVariants}
             >
-              India&apos;s first roast-comedy job pitch
+              বেকার? CV নিয়ে মঞ্চে আয়।
               <br />
-              show — where job seekers get made, not broken.
+              India&apos;s first roast-comedy job pitch show!
             </motion.p>
           </motion.div>
 
