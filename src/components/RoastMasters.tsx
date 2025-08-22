@@ -95,8 +95,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
           className="text-secondary font-fitfully text-4xl md:text-6xl lg:text-8xl font-normal uppercase mb-16"
           variants={titleVariants}
         >
-          {hasRoastMasters ? "শুধু জ্ঞান " : "শুধু জ্ঞান "}
-          দেবেন, না চাকরিও দেবেন?
+          <span className="font-hind-siliguri font-bold">{hasRoastMasters ? "শুধু জ্ঞান " : "শুধু জ্ঞান "}
+          দেবেন, না চাকরিও দেবেন?</span>
         </motion.div>
 
         {hasRoastMasters ? (

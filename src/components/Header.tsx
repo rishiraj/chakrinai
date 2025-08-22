@@ -156,7 +156,7 @@ const Header: React.FC = () => {
               className="font-merriweather-sans text-base md:text-3xl  w-11/12 lg:max-w-4xl px-8"
               variants={heroTextVariants}
             >
-              বেকার? CV নিয়ে মঞ্চে আয়।
+              <span className="font-hind-siliguri font-bold">বেকার? CV নিয়ে মঞ্চে আয়।</span>
               <br />
               India&apos;s first roast-comedy job pitch show!
             </motion.p>
