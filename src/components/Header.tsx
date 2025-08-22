@@ -81,7 +81,7 @@ const buttonVariants = {
 
 const Header: React.FC = () => {
   return (
-    <div id="home" className="w-full bg-primary pt-16">
+    <div id="home" className="w-full  pt-16">
       {/* Keep fixed Navbar outside transformed containers */}
       <Navbar />
       <motion.div

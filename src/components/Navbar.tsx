@@ -77,15 +77,13 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed left-0 right-0 z-50 w-full flex justify-center transition-all duration-700 ${
-        isScrolled ? "-top-4 pt-16" : "top-4 pt-32"
-      }`}
+      className={`fixed left-0 right-0 z-50 w-full flex justify-center transition-all duration-700 ${isScrolled ? "-top-4 pt-16" : "top-4 pt-32"
+        }`}
     >
       {/* Main Navigation Bar */}
       <nav
-        className={`bg-primary rounded-full px-6 sm:px-8 lg:px-12 py-4 sm:py-6 w-full max-w-5xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm transition-all duration-700 ${
-          isScrolled ? "h-[70px]" : "h-[100px]"
-        }`}
+        className={`bg-primary rounded-full px-6 sm:px-8 lg:px-12 py-4 sm:py-6 w-full max-w-5xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm transition-all duration-700 border-2 ${isScrolled ? "h-[75px] border-neutral-cream shadow-2xl" : "h-[100px] border-transparent"
+          }`}
       >
         {/* Left Navigation Items - Desktop */}
         <div className="hidden lg:flex items-center gap-2 xl:gap-4">
@@ -95,13 +93,11 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("home");
             }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${
-              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-            } ${
-              activeId === "home"
+            className={`rounded-full px-6 xl:px-8 py-3  font-bold font-caption-handwriting transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl xl:py-2" : "text-2xl xl:text-4xl xl:py-4"
+              } ${activeId === "home"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
-            }`}
+              }`}
           >
             Home
           </a>
@@ -111,13 +107,11 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("how-it-works");
             }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${
-              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-            } ${
-              activeId === "how-it-works"
+            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+              } ${activeId === "how-it-works"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
-            }`}
+              }`}
           >
             About
           </a>
@@ -140,9 +134,8 @@ const Navbar = () => {
         <Image
           src={Logo}
           alt="Chakri Nai Logo"
-          className={`h-auto ml-auto lg:mx-auto transition-all duration-700 ${
-            isScrolled ? "w-40" : "w-56"
-          }`}
+          className={`h-auto ml-auto lg:mx-auto transition-all duration-700 ${isScrolled ? "w-40" : "w-56"
+            }`}
         />
 
         {/* Right Navigation Items - Desktop */}
@@ -153,21 +146,18 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("roast-masters");
             }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${
-              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-            } ${
-              activeId === "roast-masters"
+            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+              } ${activeId === "roast-masters"
                 ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                 : "text-white hover:bg-white/10"
-            }`}
+              }`}
           >
             Roast Masters
           </a>
           <a
             href="#tickets"
-            className={`text-white rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting hover:bg-white/10 transition-all duration-700 ${
-              isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-            }`}
+            className={`text-white rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting hover:bg-white/10 transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
+              }`}
           >
             Tickets
           </a>
@@ -187,11 +177,10 @@ const Navbar = () => {
               scrollToSection("home");
               setIsOpen(false);
             }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${
-              activeId === "home"
-                ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-            }`}
+            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${activeId === "home"
+              ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
+              : "text-white hover:bg-white/10"
+              }`}
           >
             Home
           </a>
@@ -202,11 +191,10 @@ const Navbar = () => {
               scrollToSection("how-it-works");
               setIsOpen(false);
             }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${
-              activeId === "how-it-works"
-                ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-            }`}
+            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${activeId === "how-it-works"
+              ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
+              : "text-white hover:bg-white/10"
+              }`}
           >
             About
           </a>
@@ -217,11 +205,10 @@ const Navbar = () => {
               scrollToSection("roast-masters");
               setIsOpen(false);
             }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${
-              activeId === "roast-masters"
-                ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-            }`}
+            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${activeId === "roast-masters"
+              ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
+              : "text-white hover:bg-white/10"
+              }`}
           >
             Roast Masters
           </a>
@@ -244,11 +231,10 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("home");
             }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 shadow-md ${
-              activeId === "home"
-                ? "bg-white text-primary hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-            }`}
+            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 shadow-md ${activeId === "home"
+              ? "bg-white text-primary hover:bg-neutral-cream"
+              : "text-white hover:bg-white/10"
+              }`}
           >
             Home
           </a>
@@ -258,11 +244,10 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("how-it-works");
             }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${
-              activeId === "how-it-works"
-                ? "bg-white text-primary hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-            }`}
+            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${activeId === "how-it-works"
+              ? "bg-white text-primary hover:bg-neutral-cream"
+              : "text-white hover:bg-white/10"
+              }`}
           >
             About
           </a>
@@ -272,11 +257,10 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("roast-masters");
             }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${
-              activeId === "roast-masters"
-                ? "bg-white text-primary hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-            }`}
+            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${activeId === "roast-masters"
+              ? "bg-white text-primary hover:bg-neutral-cream"
+              : "text-white hover:bg-white/10"
+              }`}
           >
             Roast Masters
           </a>

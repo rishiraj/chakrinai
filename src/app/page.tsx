@@ -15,9 +15,9 @@ import FeatureRule from "../../public/content/feature.rule.json";
 
 export default function Home() {
   return (
-    <div className="bg-primary min-h-screen relative w-full">
+    <div className="min-h-screen relative w-full">
       {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-30 z-0">
+      <div className="absolute inset-0 opacity-30 z-[-1]">
         <div
           className="w-full h-full"
           style={{
