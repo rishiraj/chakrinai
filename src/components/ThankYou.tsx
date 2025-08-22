@@ -84,9 +84,9 @@ const ThankYou: React.FC = () => {
   return (
     <div className="rounded-[44px] border-2 border-secondary-light p-8 md:p-12 lg:p-16 w-full max-w-7xl mx-auto my-24 z-50">
       <div className="text-secondary-light font-fitfully text-6xl md:text-8xl lg:text-9xl font-normal uppercase mb-12 text-center">
-        THANKS FOR
+        <span className="font-hind-siliguri font-bold">চাকরি নাই?</span>
         <br />
-        STAYING WITH US.
+        <span className="font-hind-siliguri font-bold">হাসতে তো মানা নাই।</span>
       </div>
 
       <div className="flex flex-col lg:flex-row items-end justify-between gap-12">

@@ -42,6 +42,7 @@ module.exports = {
         'dk-keswick': ['DkKeswick-Regular', 'serif'],
         'alumni-sans': ['AlumniSans-Medium', 'sans-serif'],
         'merriweather-sans': ['var(--font-merriweather-sans)', 'sans-serif'],
+        'hind-siliguri': ['"Hind Siliguri"', 'sans-serif'],
       },
       fontSize: {
         'hero': ['clamp(3rem,8vw,9rem)', { lineHeight: '1.1' }],

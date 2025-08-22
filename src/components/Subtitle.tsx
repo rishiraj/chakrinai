@@ -19,7 +19,7 @@ const Subtitle: React.FC = () => {
             ( the participants )
           </div>
           <div className="text-white font-fitfully text-6xl md:text-8xl lg:text-9xl font-normal uppercase leading-tight">
-            চাকরির ইন্টারভিউ, শুধু একটু বেশি ঝাল দিয়ে।
+            <span className="font-hind-siliguri font-bold">চাকরির ইন্টারভিউ, শুধু একটু বেশি ঝাল দিয়ে।</span>
           </div>
         </div>
         {/* Paper Plane with dashed path */}
