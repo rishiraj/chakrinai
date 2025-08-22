@@ -162,7 +162,7 @@ const HowItWorks: React.FC = () => {
                 "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
               )}
             >
-              Step into the ring with your pitch and resume.
+              You get two minutes. Two minutes to pitch your skills, your story, your ambition. No HR jargon. Be bold, be funny, be unforgettable.
             </p>
           </motion.div>
         </motion.div>
@@ -214,7 +214,7 @@ const HowItWorks: React.FC = () => {
             }}
           >
             <h2 className="text-neutral-gray font-caption-handwriting text-2xl md:text-4xl lg:text45xl font-normal italic mb-4">
-              Roast
+              Survive the Roast
             </h2>
             <p
               className={cn(
@@ -223,8 +223,7 @@ const HowItWorks: React.FC = () => {
                 "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
               )}
             >
-              Startup founders, comedians, and industry icons roast your
-              pitch—with heart and humor.
+              Our panel of founders, comedians, and industry sharks will tear your pitch apart. They&apos;ll roast your resume, your delivery, your life choices.
             </p>
           </motion.div>
         </motion.div>
@@ -285,7 +284,7 @@ const HowItWorks: React.FC = () => {
                 "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
               )}
             >
-              Walk away with real interviews, internships—or even job offers.
+              Walk away with an interview, an internship, a mentorship connection, or even a job offer on the spot. Leave with a career, or at least a killer story.
             </p>
           </motion.div>
         </motion.div>
