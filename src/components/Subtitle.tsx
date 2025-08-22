@@ -2,7 +2,7 @@ import React from "react";
 
 const Subtitle: React.FC = () => {
   return (
-    <div className="relative w-full pt-24 pb-2">
+    <div className="relative w-full pt-24 pb-0">
 
       {/* Paper Bucket */}
       {/* <div className="absolute right-8 top-1/2 -translate-y-1/2">
@@ -23,7 +23,7 @@ const Subtitle: React.FC = () => {
           </div>
         </div>
         {/* Paper Plane with dashed path */}
-        <div className="flex flex-row items-start w-fit justify-right bottom-0 mt-10 relative mr-auto xl:scale-150">
+        <div className="flex flex-row items-start w-fit justify-right bottom-0 mt-10 relative mr-auto xl:scale-150 z-10">
 
           <img
             className="w-64 h-auto"
