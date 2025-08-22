@@ -111,7 +111,11 @@ const ThankYou: React.FC = () => {
               </div>
             </div>
             <div className="text-secondary-light font-awesome-serif text-lg md:text-xl lg:text-2xl font-normal italic">
-              Made with 🔥 by CHAKRI NAI
+              Made by <a 
+                href="https://github.com/rishiraj/chakrinai/graphs/contributors"
+              >
+                Team CHAKRI NAI
+              </a>
             </div>
           </div>
         </div>

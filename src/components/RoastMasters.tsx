@@ -358,7 +358,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Discover Raw Talent
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Find Bengal&apos;s most resilient and creative minds before they&apos;re buried in a pile of CVs.
+                      Find creative minds before they&apos;re buried in a pile of CVs.
                     </p>
                   </motion.div>
                   <motion.div
@@ -390,7 +390,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Build a Real Brand
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Forget &apos;thought leadership&apos;. Become a legend (or a beloved villain) in Kolkata&apos;s startup scene.
+                      Become a legend (or a beloved villain) in Kolkata&apos;s startup scene.
                     </p>
                   </motion.div>
                   <motion.div
@@ -413,7 +413,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       <Sprout className="text-white size-8" />
                     </motion.div>
                     <h4 className="text-neutral-black font-caption-handwriting text-2xl lg:text-4xl font-normal italic mb-2">
-                      Actually Make a Difference
+                      Make a Difference
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
                       Don&apos;t just talk about the talent gap. Close it. Live on stage.
