@@ -223,7 +223,7 @@ const HowItWorks: React.FC = () => {
                 "text-neutral-gray-light font-product-sans text-base md:text-lg font-normal"
               )}
             >
-              Our panel of founders, comedians, and industry sharks will tear your pitch apart. They’ll roast your resume, your delivery, your life choices.
+              Our panel of founders, comedians, and industry sharks will tear your pitch apart. They&apos;ll roast your resume, your delivery, your life choices.
             </p>
           </motion.div>
         </motion.div>
