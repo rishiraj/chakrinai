@@ -311,7 +311,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       },
                     }}
                   >
-                    We're looking for founders, industry leaders, and comedians who can deliver brutal feedback with a punchline. If you believe in tough love and have the power to change a career in one night, we want you on the panel.
+                    We&apos;re looking for founders, industry leaders, and comedians who can deliver brutal feedback with a punchline. If you believe in tough love and have the power to change a career in one night, we want you on the panel.
                   </motion.p>
                 </motion.div>
 
@@ -358,7 +358,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Discover Raw Talent
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Find Bengal's most resilient and creative minds before they're buried in a pile of CVs.
+                      Find Bengal&apos;s most resilient and creative minds before they&apos;re buried in a pile of CVs.
                     </p>
                   </motion.div>
                   <motion.div
@@ -390,7 +390,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Build a Real Brand
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Forget 'thought leadership'. Become a legend (or a beloved villain) in Kolkata's startup scene.
+                      Forget &apos;thought leadership&apos;. Become a legend (or a beloved villain) in Kolkata&apos;s startup scene.
                     </p>
                   </motion.div>
                   <motion.div
@@ -416,7 +416,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Actually Make a Difference
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Don't just talk about the talent gap. Close it. Live on stage.
+                      Don&apos;t just talk about the talent gap. Close it. Live on stage.
                     </p>
                   </motion.div>
                 </motion.div>
