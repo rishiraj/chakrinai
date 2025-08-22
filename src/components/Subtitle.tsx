@@ -18,7 +18,7 @@ const Subtitle: React.FC = () => {
           <div className="text-white font-caption-handwriting text-4xl md:text-6xl lg:text-7xl font-normal mb-8">
             ( the participants )
           </div>
-          <div className="text-white font-fitfully text-6xl md:text-8xl lg:text-9xl font-normal uppercase leading-tight">
+          <div className="text-white font-fitfully text-4xl md:text-6xl lg:text-8xl font-normal uppercase leading-tight">
             <span className="font-hind-siliguri font-bold">চাকরির ইন্টারভিউ, শুধু একটু বেশি ঝাল দিয়ে।</span>
           </div>
         </div>
