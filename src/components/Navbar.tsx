@@ -175,7 +175,7 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
               className={cn(
-                "rounded-full px-6 py-2 font-bold text-lg font-caption-handwriting transition-all duration-700 w-11/12 text-center",
+                "rounded-full px-6 py-2 font-bold text-lg font-caption-handwriting transition-all duration-700 w-11/12 text-center capitalize",
                 activeId === id
                   ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
                   : "text-white hover:bg-white/10"
