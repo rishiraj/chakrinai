@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preview": "next build && next start"
+    "preview": "next build && next start",
+    "generate-og": "node scripts/generate-og-images.js",
+    "seo-check": "echo 'Run the following checks:' && echo '1. Facebook Debugger: https://developers.facebook.com/tools/debug/' && echo '2. Twitter Card Validator: https://cards-dev.twitter.com/validator' && echo '3. Google Rich Results: https://search.google.com/test/rich-results'"
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
+    "@vercel/og": "^0.8.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",

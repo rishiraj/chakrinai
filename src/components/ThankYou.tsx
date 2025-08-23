@@ -82,14 +82,14 @@ const ThankYou: React.FC = () => {
 
 
   return (
-    <div className="rounded-[44px] border-2 border-secondary-light p-8 md:p-12 lg:p-16 w-full max-w-7xl mx-auto my-24 z-50">
+    <div className="rounded-[44px] border-2 border-secondary-light p-8 md:p-12 lg:p-16 w-11/12 max-w-7xl mx-auto my-24 z-50">
       <div className="text-secondary-light font-fitfully text-6xl md:text-8xl lg:text-9xl font-normal uppercase mb-12 text-center">
         <span className="font-hind-siliguri font-bold">চাকরি নাই?</span>
         <br />
         <span className="font-hind-siliguri font-bold">হাসতে তো মানা নাই।</span>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-end justify-between gap-12">
+      <div className="flex flex-col lg:flex-row items-center justify-center lg:items-end lg:justify-between gap-12">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Chakri Nai Logo */}
           <div className="relative">
@@ -102,7 +102,7 @@ const ThankYou: React.FC = () => {
 
           <div className="flex flex-col gap-8 text-center lg:text-left">
             <div className="flex flex-col gap-6">
-              <div className="text-secondary-light font-awesome-serif text-3xl md:text-4xl lg:text-5xl font-normal italic">
+              <div className="text-secondary-light font-awesome-serif text-2xl md:text-4xl lg:text-5xl font-normal italic">
                 chakrinaishow@gmail.com
               </div>
 
@@ -111,7 +111,7 @@ const ThankYou: React.FC = () => {
               </div>
             </div>
             <div className="text-secondary-light font-awesome-serif text-lg md:text-xl lg:text-2xl font-normal italic">
-              Made by <a 
+              Made by <a
                 href="https://github.com/rishiraj/chakrinai/graphs/contributors"
               >
                 Team CHAKRI NAI
@@ -134,6 +134,7 @@ const ThankYou: React.FC = () => {
             <Link
               href={socialLinks.instagram}
               className="block group"
+              target="_blank"
             >
               <motion.div
                 className="bg-secondary-light rounded-full p-4 border border-black relative overflow-hidden"
@@ -151,6 +152,7 @@ const ThankYou: React.FC = () => {
             <Link
               href={socialLinks.twitter}
               className="block group"
+              target="_blank"
             >
               <motion.div
                 className="bg-secondary-light rounded-full p-4 border border-black relative overflow-hidden cursor-pointer"

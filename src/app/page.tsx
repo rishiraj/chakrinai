@@ -9,6 +9,7 @@ import {
   Reviews,
   ThankYou,
   Footer,
+  TicketsComingSoon,
 } from "@/components";
 // import { getRoastMasters } from "@/data/roastMasters";
 import FeatureRule from "../../public/content/feature.rule.json";
@@ -42,9 +43,13 @@ export default function Home() {
       {/* Reviews Component */}
       {FeatureRule.sections.reviews && <Reviews />}
 
-      {/* Footer Component */}
+      {/* Tickets Coming Soon Section */}
+      {FeatureRule.sections.tickets && <TicketsComingSoon />}
+
+      {/* Thank You Section */}
       {FeatureRule.sections.thankyou && <ThankYou />}
 
+      {/* Footer Component */}
       {FeatureRule.sections.footer && <Footer />}
     </div>
   );

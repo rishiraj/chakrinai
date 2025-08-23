@@ -146,7 +146,24 @@ const Header: React.FC = () => {
                   <Image
                     src={RedStroke}
                     alt=""
-                    className="scale-90 lg:scale-100"
+                    className="scale-90 lg:scale-100 hidden lg:flex"
+                  />
+                </motion.div>
+                <motion.div
+                  initial={{ scale: 0, rotate: -45, x: -100 }}
+                  animate={{ scale: 0.7, rotate: 0, x: 0 }}
+                  transition={{
+                    delay: 1.2,
+                    duration: 1.0,
+                    ease: "backOut",
+                    type: "spring",
+                    bounce: 0.4,
+                  }}
+                >
+                  <Image
+                    src={RedStroke}
+                    alt=""
+                    className="scale-60  lg:scale-100 flex lg:hidden"
                   />
                 </motion.div>
                 <span className="absolute"> Get Hired.</span>
