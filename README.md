@@ -33,6 +33,13 @@ Chakri Nai transforms the traditional job interview process into an engaging, en
 - **PostHog** - Product analytics and user behavior tracking
 - **Google Analytics** - Web analytics and insights
 
+### SEO & Social Media
+- **Dynamic OG Images** - API-generated Open Graph images
+- **Static OG Images** - Pre-generated SVG images for all sections
+- **Comprehensive Metadata** - Complete SEO meta tags and structured data
+- **Twitter Cards** - Optimized social media sharing
+- **PWA Support** - Progressive Web App manifest and features
+
 ### Development Tools
 - **ESLint** - Code linting and quality
 - **Turbopack** - Fast development builds
