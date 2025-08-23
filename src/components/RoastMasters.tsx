@@ -96,7 +96,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
           variants={titleVariants}
         >
           <span className="font-hind-siliguri font-bold">{hasRoastMasters ? "শুধু জ্ঞান " : "শুধু জ্ঞান "}
-          দেবেন, না চাকরিও দেবেন?</span>
+            দেবেন, না চাকরিও দেবেন?</span>
         </motion.div>
 
         {hasRoastMasters ? (
@@ -185,7 +185,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
           </motion.div>
         ) : (
           // Recruitment section when no data is available
-          <motion.div className="w-11/12 mx-auto" variants={cardVariants}>
+          <motion.div className="w-full mx-auto" variants={cardVariants}>
             <motion.div
               className="bg-secondary rounded-[60px] p-12 md:p-16 relative"
               whileHover={{ scale: 1.02 }}
@@ -208,7 +208,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     bounce: 0.6,
                   }}
                 >
-                  <Image src={MicImage} alt="mic" className="size-40" />
+                  <Image src={MicImage} alt="mic" className="size-24 lg:size-40" />
                 </motion.div>
               </motion.div>
               <motion.div
@@ -237,7 +237,7 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     bounce: 0.6,
                   }}
                 >
-                  <Image src={ResumeImage} alt="resume" className="size-40" />
+                  <Image src={ResumeImage} alt="resume" className="size-24 translate-y-10 lg:translate-y-0 lg:size-40" />
                 </motion.div>
               </motion.div>
 

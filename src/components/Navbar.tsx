@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Logo from "../../public/assets/logo.png";
+import { cn } from "@/lib/utils"; // assuming your cn util is here
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +18,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["home", "how-it-works", "roast-masters"] as const;
-    const navbarHeight = isScrolled ? 70 : 100; // Adjust navbar height based on scroll state
+    const sectionIds = ["home", "how-it-works", "roast-masters", "tickets"] as const;
+    const navbarHeight = isScrolled ? 70 : 100;
     const topPadding = 64;
     const totalOffset = navbarHeight + topPadding + 20;
 
@@ -53,9 +54,7 @@ const Navbar = () => {
       });
     };
 
-    const initialActive = computeActive();
-    setActiveId(initialActive);
-
+    setActiveId(computeActive());
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
@@ -64,212 +63,151 @@ const Navbar = () => {
     };
   }, [isScrolled]);
 
-  // Add scroll listener for navbar state
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50); // Trigger when scrolled more than 50px
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div
-      className={`fixed left-0 right-0 z-50 w-full flex justify-center transition-all duration-700 ${isScrolled ? "-top-4 pt-16" : "top-4 pt-32"
-        }`}
+      className={cn(
+        "fixed left-0 right-0 z-50 w-11/12 mx-auto lg:w-full flex justify-center transition-all duration-700",
+        isScrolled ? "-top-2 pt-8 sm:-top-4 sm:pt-16" : "top-2 pt-16 sm:top-4 sm:pt-32"
+      )}
     >
-      {/* Main Navigation Bar */}
       <nav
-        className={`bg-primary rounded-full px-6 sm:px-8 lg:px-12 py-4 sm:py-6 w-full max-w-5xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm transition-all duration-700 border-2 ${isScrolled ? "h-[75px] border-neutral-cream shadow-2xl" : "h-[100px] border-transparent"
-          }`}
+        className={cn(
+          "bg-primary rounded-full px-3 sm:px-6 lg:px-12 w-full max-w-5xl mx-auto flex items-center justify-between shadow-lg backdrop-blur-sm transition-all duration-700 border",
+          isScrolled
+            ? "h-[60px] border-neutral-cream shadow-2xl"
+            : "h-[80px] border-neutral-cream/40",
+          isOpen && "border-b-2 border-neutral-cream/60"
+        )}
       >
-        {/* Left Navigation Items - Desktop */}
+        {/* Left Links */}
         <div className="hidden lg:flex items-center gap-2 xl:gap-4">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("home");
-            }}
-            className={`rounded-full px-6 xl:px-8 py-3  font-bold font-caption-handwriting transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl xl:py-2" : "text-2xl xl:text-4xl xl:py-4"
-              } ${activeId === "home"
-                ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-              }`}
-          >
-            Home
-          </a>
-          <a
-            href="#how-it-works"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("how-it-works");
-            }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-              } ${activeId === "how-it-works"
-                ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-              }`}
-          >
-            About
-          </a>
+          {[
+            { id: "home", label: "Home" },
+            { id: "how-it-works", label: "About" },
+          ].map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(id);
+              }}
+              className={cn(
+                "rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting text-2xl  transition-all duration-700",
+                isScrolled ? "xl:text-2xl xl:py-2" : "xl:text-4xl xl:py-4",
+                activeId === id
+                  ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
+                  : "text-white hover:bg-white/10"
+              )}
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white lg:hidden p-2 rounded-full hover:bg-white/10 transition-all duration-700"
+          className="text-white lg:hidden p-2 rounded-full hover:bg-white/10 transition-all duration-700 border border-white/30"
           aria-label="Toggle menu"
         >
-          {isOpen ? (
-            <X size={isScrolled ? 24 : 28} />
-          ) : (
-            <Menu size={isScrolled ? 24 : 28} />
-          )}
+          {isOpen ? <X size={isScrolled ? 22 : 26} /> : <Menu size={isScrolled ? 22 : 26} />}
         </button>
 
         {/* Center Logo */}
         <Image
           src={Logo}
-          alt="Chakri Nai Logo"
-          className={`h-auto ml-auto lg:mx-auto transition-all duration-700 ${isScrolled ? "w-40" : "w-56"
-            }`}
+          alt="Logo"
+          className={cn(
+            "h-auto ml-auto lg:mx-auto transition-all duration-700",
+            isScrolled ? "w-32 sm:w-40" : "w-44 sm:w-56"
+          )}
+          priority
         />
 
-        {/* Right Navigation Items - Desktop */}
+        {/* Right Links */}
         <div className="hidden lg:flex items-center gap-2 xl:gap-4">
-          <a
-            href="#roast-masters"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("roast-masters");
-            }}
-            className={`rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-              } ${activeId === "roast-masters"
-                ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-                : "text-white hover:bg-white/10"
-              }`}
-          >
-            Roast Masters
-          </a>
-          <a
-            href="#tickets"
-            className={`text-white rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting hover:bg-white/10 transition-all duration-700 ${isScrolled ? "text-xl xl:text-2xl" : "text-2xl xl:text-4xl"
-              }`}
-          >
-            Tickets
-          </a>
+          {[
+            { id: "roast-masters", label: "Roast Masters" },
+            { id: "tickets", label: "Tickets" },
+          ].map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(e) => {
+                if (id !== "tickets") {
+                  e.preventDefault();
+                  scrollToSection(id);
+                }
+              }}
+              className={cn(
+                "rounded-full px-6 xl:px-8 py-3 xl:py-4 font-bold font-caption-handwriting text-2xl xl:text-4xl transition-all duration-700",
+                isScrolled ? "xl:text-2xl xl:py-2" : "xl:text-4xl xl:py-4",
+                activeId === id
+                  ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
+                  : "text-white hover:bg-white/10"
+              )}
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
-        {/* Spacer for mobile to center logo */}
         <div className="lg:hidden w-10"></div>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-primary rounded-2xl shadow-2xl flex flex-col items-center gap-3 py-6 mt-2 lg:hidden backdrop-blur-sm">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("home");
-              setIsOpen(false);
-            }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${activeId === "home"
-              ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-              : "text-white hover:bg-white/10"
-              }`}
-          >
-            Home
-          </a>
-          <a
-            href="#how-it-works"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("how-it-works");
-              setIsOpen(false);
-            }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${activeId === "how-it-works"
-              ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-              : "text-white hover:bg-white/10"
-              }`}
-          >
-            About
-          </a>
-          <a
-            href="#roast-masters"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("roast-masters");
-              setIsOpen(false);
-            }}
-            className={`rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting transition-all duration-700 w-4/5 text-center ${activeId === "roast-masters"
-              ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
-              : "text-white hover:bg-white/10"
-              }`}
-          >
-            Roast Masters
-          </a>
-          <a
-            href="#tickets"
-            onClick={() => setIsOpen(false)}
-            className="text-white rounded-full px-8 py-3 font-bold text-2xl font-caption-handwriting hover:bg-white/10 transition-all duration-700 w-4/5 text-center"
-          >
-            Tickets
-          </a>
+        <div className="absolute top-full left-0 w-full bg-primary rounded-2xl shadow-2xl flex flex-col items-center gap-2 py-3 mt-2 lg:hidden backdrop-blur-sm border border-neutral-cream/60">
+          {["home", "how-it-works", "roast-masters", "tickets"].map((id) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(id);
+                setIsOpen(false);
+              }}
+              className={cn(
+                "rounded-full px-6 py-2 font-bold text-lg font-caption-handwriting transition-all duration-700 w-11/12 text-center",
+                activeId === id
+                  ? "bg-white text-primary shadow-md hover:bg-neutral-cream"
+                  : "text-white hover:bg-white/10"
+              )}
+            >
+              {id === "how-it-works" ? "About" : id.replace("-", " ")}
+            </a>
+          ))}
         </div>
       )}
 
-      {/* Tablet Navigation - Medium screens */}
-      <div className="hidden md:flex lg:hidden items-center justify-center mt-4">
-        <div className="flex items-center gap-4 bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 rounded-full px-6 py-3 shadow-lg backdrop-blur-sm">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("home");
-            }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 shadow-md ${activeId === "home"
-              ? "bg-white text-primary hover:bg-neutral-cream"
-              : "text-white hover:bg-white/10"
-              }`}
-          >
-            Home
-          </a>
-          <a
-            href="#how-it-works"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("how-it-works");
-            }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${activeId === "how-it-works"
-              ? "bg-white text-primary hover:bg-neutral-cream"
-              : "text-white hover:bg-white/10"
-              }`}
-          >
-            About
-          </a>
-          <a
-            href="#roast-masters"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("roast-masters");
-            }}
-            className={`rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700 ${activeId === "roast-masters"
-              ? "bg-white text-primary hover:bg-neutral-cream"
-              : "text-white hover:bg-white/10"
-              }`}
-          >
-            Roast Masters
-          </a>
-          <a
-            href="#tickets"
-            className="text-white rounded-full px-6 py-2 font-bold text-base font-caption-handwriting hover:bg-white/10 transition-all duration-700"
-          >
-            Tickets
-          </a>
+      {/* Tablet Nav */}
+      <div className="hidden md:flex lg:hidden items-center justify-center mt-2">
+        <div className="flex items-center gap-2 bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 rounded-full px-4 py-2 shadow-lg backdrop-blur-sm border border-neutral-cream/60">
+          {["home", "how-it-works", "roast-masters", "tickets"].map((id) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(id);
+              }}
+              className={cn(
+                "rounded-full px-6 py-2 font-bold text-base font-caption-handwriting transition-all duration-700",
+                activeId === id
+                  ? "bg-white text-primary hover:bg-neutral-cream"
+                  : "text-white hover:bg-white/10"
+              )}
+            >
+              {id === "how-it-works" ? "About" : id.replace("-", " ")}
+            </a>
+          ))}
         </div>
       </div>
     </div>
