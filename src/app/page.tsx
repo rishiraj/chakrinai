@@ -10,6 +10,7 @@ import {
   ThankYou,
   Footer,
   TicketsComingSoon,
+  TrustedByCompanies,
 } from "@/components";
 // import { getRoastMasters } from "@/data/roastMasters";
 import FeatureRule from "../../public/content/feature.rule.json";
@@ -45,6 +46,9 @@ export default function Home() {
 
       {/* Tickets Coming Soon Section */}
       {FeatureRule.sections.tickets && <TicketsComingSoon />}
+
+      {/* Trusted by Companies Section */}
+      {FeatureRule.sections.trustedCompanies && <TrustedByCompanies />}
 
       {/* Thank You Section */}
       {FeatureRule.sections.thankyou && <ThankYou />}

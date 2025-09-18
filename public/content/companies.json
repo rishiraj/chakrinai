@@ -1,0 +1,18 @@
+{
+    "companies": [
+        {
+            "id": "1",
+            "name": "Shark Tank India",
+            "logo": "/assets/companies/SharkTank.png",
+            "website": "https://google.com"
+        }
+    ],
+    "settings": {
+        "title": "Trusted by Companies at",
+        "subtitle": "Leading companies trust our platform for talent acquisition",
+        "maxGridItems": 4,
+        "marqueeSpeed": 30,
+        "showLogos": true,
+        "enableHover": true
+    }
+}
