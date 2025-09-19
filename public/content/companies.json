@@ -1,0 +1,18 @@
+{
+    "companies": [
+        {
+            "id": "1",
+            "name": "Shark Tank India",
+            "logo": "/assets/companies/SharkTank.png",
+            "website": "https://google.com"
+        }
+    ],
+    "settings": {
+        "title": "They Actually Trust Us",
+        "subtitle": "Because apparently, getting roasted leads to getting hired. Who knew?",
+        "maxGridItems": 4,
+        "marqueeSpeed": 25,
+        "showLogos": true,
+        "enableHover": true
+    }
+}
