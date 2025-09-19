@@ -97,7 +97,7 @@ const Header: React.FC = () => {
           transition={{ duration: 1.2, ease: "backOut" }}
         >
           <Image
-            className="w-full h-auto"
+            className="object-cover w-auto h-[60vh] lg:w-full lg:h-auto"
             src={HumanImage}
             alt="Background pattern"
           />

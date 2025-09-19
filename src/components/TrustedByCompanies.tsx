@@ -13,7 +13,6 @@ interface Company {
 
 interface TrustedByCompaniesProps {
   companies?: Company[];
-  title?: string;
   subtitle?: string;
   maxGridItems?: number;
   marqueeSpeed?: number;
@@ -66,7 +65,6 @@ const companyVariants = {
 
 const TrustedByCompanies: React.FC<TrustedByCompaniesProps> = ({
   companies = companiesData.companies,
-  title = companiesData.settings.title,
   subtitle = companiesData.settings.subtitle,
   maxGridItems = companiesData.settings.maxGridItems,
   marqueeSpeed = companiesData.settings.marqueeSpeed,
@@ -86,39 +84,40 @@ const TrustedByCompanies: React.FC<TrustedByCompaniesProps> = ({
     index: number;
   }) => (
     <motion.div
-      className="flex items-center justify-center p-4 bg-white rounded-2xl shadow-lg border-2 border-neutral-gray-light mx-2 min-w-[200px] h-24"
+      className="flex items-center justify-center p-6 bg-white backdrop-blur-sm rounded-2xl shadow-lg border-2 border-white/20 mx-3 min-w-[180px] h-40"
       variants={companyVariants}
       whileHover={
         enableHover
           ? {
-              scale: 1.05,
-              y: -5,
-              rotate: index % 2 === 0 ? 2 : -2,
-              transition: { duration: 0.3, ease: "backOut" },
-            }
+            scale: 1.08,
+            y: -8,
+            rotate: index % 2 === 0 ? 3 : -3,
+            backgroundColor: "rgba(255, 255, 255, 1)",
+            transition: { duration: 0.3, ease: "backOut" },
+          }
           : {}
       }
-      whileTap={enableHover ? { scale: 0.95 } : {}}
+      whileTap={enableHover ? { scale: 0.92 } : {}}
     >
       {showLogos ? (
         <Image
           src={company.logo}
           alt={`${company.name} logo`}
-          width={120}
-          height={60}
-          className="object-contain max-h-18 w-auto"
+          width={100}
+          height={50}
+          className="object-contain max-h-32 w-auto"
           onError={(e) => {
             // Fallback to company name if logo fails to load
             const target = e.target as HTMLImageElement;
             target.style.display = "none";
             const parent = target.parentElement;
             if (parent) {
-              parent.innerHTML = `<span class="text-primary font-bold text-lg">${company.name}</span>`;
+              parent.innerHTML = `<span class="text-primary font-bold text-base">${company.name}</span>`;
             }
           }}
         />
       ) : (
-        <span className="text-primary font-bold text-lg">{company.name}</span>
+        <span className="text-primary font-bold text-base">{company.name}</span>
       )}
     </motion.div>
   );
@@ -126,36 +125,42 @@ const TrustedByCompanies: React.FC<TrustedByCompaniesProps> = ({
   return (
     <motion.div
       id="trusted-companies"
-      className="bg-secondary rounded-[80px] w-11/12 max-w-7xl mx-auto py-20 px-6 my-16 relative border-2 border-primary shadow-lg scroll-mt-[120px]"
+      className="relative w-full py-12 px-6 scroll-mt-[120px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="relative z-10">
-        {/* Title Section */}
-        <motion.div className="text-center mb-12" variants={titleVariants}>
-          <motion.h2
-            className="text-primary text-4xl md:text-5xl lg:text-6xl font-fitfully font-bold uppercase mb-4"
+      <div className="container mx-auto text-center relative flex flex-col items-center justify-center">
+        {/* Snarky Title Section - Subtitle Style */}
+        <motion.div className="mb-8" variants={titleVariants}>
+          <motion.div
+            className="text-white font-caption-handwriting text-2xl md:text-4xl lg:text-5xl font-normal mb-4"
             variants={titleVariants}
           >
-            {title}
-          </motion.h2>
-          {subtitle && (
+            ( the recruiters )
+          </motion.div>
+          <motion.div
+            className="text-white font-fitfully text-3xl md:text-5xl lg:text-6xl font-normal uppercase leading-tight"
+            variants={titleVariants}
+          >
+            Trusted by companies at
+          </motion.div>
+          {/* {subtitle && (
             <motion.p
-              className="text-neutral-black text-lg md:text-xl max-w-2xl mx-auto font-awesome-serif"
+              className="text-white/80 text-base font-hind-siliguri md:text-lg max-w-2xl mx-auto font-awesome-serif mt-4"
               variants={titleVariants}
             >
               {subtitle}
             </motion.p>
-          )}
+          )} */}
         </motion.div>
 
         {/* Companies Display */}
         {shouldUseMarquee ? (
           // Marquee for more than maxGridItems
-          <motion.div className="overflow-hidden" variants={companyVariants}>
-            <Marquee speed={marqueeSpeed} gradient={false}>
+          <motion.div className="overflow-hidden w-full" variants={companyVariants}>
+            <Marquee speed={marqueeSpeed} gradient={false} className="py-4">
               {displayCompanies.map((company, index) => (
                 <CompanyLogo key={company.id} company={company} index={index} />
               ))}
@@ -172,15 +177,14 @@ const TrustedByCompanies: React.FC<TrustedByCompaniesProps> = ({
         ) : (
           // Grid for maxGridItems or fewer - handle odd numbers with middle alignment
           <motion.div
-            className={`grid gap-6 max-w-4xl mx-auto ${
-              displayCompanies.length === 1
-                ? "grid-cols-1 justify-items-center"
-                : displayCompanies.length === 2
+            className={`grid gap-6 max-w-4xl mx-auto ${displayCompanies.length === 1
+              ? "grid-cols-1 justify-items-center"
+              : displayCompanies.length === 2
                 ? "grid-cols-2"
                 : displayCompanies.length === 3
-                ? "grid-cols-2"
-                : "grid-cols-2"
-            }`}
+                  ? "grid-cols-2"
+                  : "grid-cols-2"
+              }`}
             variants={{
               hidden: {},
               visible: {

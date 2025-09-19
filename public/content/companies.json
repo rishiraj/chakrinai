@@ -8,10 +8,10 @@
         }
     ],
     "settings": {
-        "title": "Trusted by Companies at",
-        "subtitle": "Leading companies trust our platform for talent acquisition",
+        "title": "They Actually Trust Us",
+        "subtitle": "Because apparently, getting roasted leads to getting hired. Who knew?",
         "maxGridItems": 4,
-        "marqueeSpeed": 30,
+        "marqueeSpeed": 25,
         "showLogos": true,
         "enableHover": true
     }
