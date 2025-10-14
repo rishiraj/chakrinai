@@ -59,7 +59,7 @@ const BuyTickets: React.FC = () => (
       className="mx-auto max-w-3xl text-center font-awesome-serif text-xl italic text-black md:text-2xl lg:text-[30px]"
       variants={childVariants}
     >
-      Tickets are live on BookMyShow
+      Tickets are live on BookMyShow -
       Grab yours before they&apos;re gone.
     </motion.p>
 
