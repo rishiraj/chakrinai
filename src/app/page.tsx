@@ -9,6 +9,7 @@ import {
   Reviews,
   ThankYou,
   Footer,
+  BuyTickets,
   TicketsComingSoon,
   TrustedByCompanies,
 } from "@/components";
@@ -16,6 +17,17 @@ import {
 import FeatureRule from "../../public/content/feature.rule.json";
 
 export default function Home() {
+  const ticketsDisplay = FeatureRule.ticketsDisplay ?? {};
+  const ticketMode = ticketsDisplay.off
+    ? "off"
+    : ticketsDisplay.buy
+    ? "buy"
+    : ticketsDisplay.comingSoon
+    ? "comingSoon"
+    : "off";
+  const showTicketsSection =
+    Boolean(FeatureRule.sections?.tickets) && ticketMode !== "off";
+
   return (
     <div className="min-h-screen relative w-full">
       {/* Background grid pattern */}
@@ -48,9 +60,8 @@ export default function Home() {
       {FeatureRule.sections.reviews && <Reviews />}
 
       {/* Tickets Coming Soon Section */}
-      {FeatureRule.sections.tickets && <TicketsComingSoon />}
-
-
+      {showTicketsSection && ticketMode === "comingSoon" && <TicketsComingSoon />}
+      {showTicketsSection && ticketMode === "buy" && <BuyTickets />}
 
       {/* Thank You Section */}
       {FeatureRule.sections.thankyou && <ThankYou />}

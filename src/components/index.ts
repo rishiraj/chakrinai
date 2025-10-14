@@ -7,6 +7,7 @@ export { default as Reviews } from "./Reviews";
 export { default as ThankYou } from "./ThankYou";
 export { default as Footer } from "./Footer";
 export { default as TicketsComingSoon } from "./TicketsComingSoon";
+export { default as BuyTickets } from "./BuyTickets";
 export { default as TrustedByCompanies } from "./TrustedByCompanies";
 
 // SEO and Meta components

@@ -11,8 +11,13 @@
         "thankyou": true,
         "footer": false
     },
+    "ticketsDisplay": {
+        "off": false,
+        "comingSoon": false,
+        "buy": true
+    },
     "header": {
-        "showTickets": false,
+        "showTickets": true,
         "showRecruiters": true
     }
 }
