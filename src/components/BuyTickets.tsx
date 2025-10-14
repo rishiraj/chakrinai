@@ -59,8 +59,8 @@ const BuyTickets: React.FC = () => (
       className="mx-auto max-w-3xl text-center font-awesome-serif text-xl italic text-black md:text-2xl lg:text-[30px]"
       variants={childVariants}
     >
-      Lock in your seats for Chakri Nai&apos;s wildest roast battles. Tickets are live on
-      BookMyShow—grab yours before they&apos;re gone.
+      Tickets are live on BookMyShow
+      Grab yours before they&apos;re gone.
     </motion.p>
 
     <motion.div
