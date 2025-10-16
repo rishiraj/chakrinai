@@ -19,5 +19,9 @@
     "header": {
         "showTickets": true,
         "showRecruiters": true
+    },
+    "roastMasters": {
+        "showData": true,
+        "showRecruitment": true
     }
 }

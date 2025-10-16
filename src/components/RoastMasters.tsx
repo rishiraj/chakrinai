@@ -1,10 +1,17 @@
+"use client";
 import { formLinks } from "@/data/forms";
+import { useEffect, useState } from "react";
+import {
+  getRoastMasters,
+  type RoastMaster as RoastMasterType,
+} from "@/data/roastMasters";
 import { Sprout } from "lucide-react";
 import React from "react";
 import MicImage from "../../public/assets/mic.svg";
 import ResumeImage from "../../public/assets/resume.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import FeatureRule from "../../public/content/feature.rule.json";
 
 // Animation variants - Transform-based only for better performance
 const containerVariants = {
@@ -60,20 +67,38 @@ const floatingVariants = {
   },
 };
 
-interface RoastMaster {
-  id: string;
-  name: string;
-  title: string;
-  image: string;
-  bio?: string;
-}
-
 interface RoastMastersProps {
-  roastMasters?: RoastMaster[];
+  roastMasters?: RoastMasterType[];
 }
 
 const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
-  const hasRoastMasters = roastMasters && roastMasters.length > 0;
+  const [loadedRoastMasters, setLoadedRoastMasters] = useState<
+    RoastMasterType[]
+  >([]);
+  const [shouldAnimateGrid, setShouldAnimateGrid] = useState<boolean>(false);
+  const resolvedRoastMasters =
+    roastMasters && roastMasters.length > 0 ? roastMasters : loadedRoastMasters;
+  const hasRoastMasters =
+    resolvedRoastMasters && resolvedRoastMasters.length > 0;
+  const isOddCount = hasRoastMasters && resolvedRoastMasters.length % 2 === 1;
+
+  useEffect(() => {
+    if (!roastMasters || roastMasters.length === 0) {
+      getRoastMasters()
+        .then((data) => {
+          setLoadedRoastMasters(Array.isArray(data) ? data : []);
+        })
+        .catch(() => {
+          setLoadedRoastMasters([]);
+        });
+    }
+  }, [roastMasters]);
+
+  useEffect(() => {
+    if (resolvedRoastMasters && resolvedRoastMasters.length > 0) {
+      setShouldAnimateGrid(true);
+    }
+  }, [resolvedRoastMasters]);
 
   return (
     <motion.div
@@ -95,14 +120,15 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
           className="text-secondary font-fitfully text-4xl md:text-6xl lg:text-8xl font-normal uppercase mb-16"
           variants={titleVariants}
         >
-          <span className="font-hind-siliguri font-bold">{hasRoastMasters ? "শুধু জ্ঞান " : "শুধু জ্ঞান "}
-            দেবেন, না চাকরিও দেবেন?</span>
+          <span className="font-hind-siliguri font-bold">
+            শুধু জ্ঞান দেবেন, না চাকরিও দেবেন?
+          </span>
         </motion.div>
 
-        {hasRoastMasters ? (
+        {FeatureRule.roastMasters?.showData && hasRoastMasters && (
           // Display roast masters when data is available
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-x-10 gap-y-16 max-w-6xl mx-auto"
             variants={{
               hidden: {},
               visible: {
@@ -111,11 +137,18 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                 },
               },
             }}
+            initial="hidden"
+            animate={shouldAnimateGrid ? "visible" : "hidden"}
+            key={`roast-grid-${resolvedRoastMasters.length}`}
           >
-            {roastMasters.map((master, index) => (
+            {resolvedRoastMasters.map((master, index) => (
               <motion.div
                 key={master.id}
-                className="bg-secondary rounded-[40px] p-8 relative"
+                className={`bg-secondary rounded-[40px] p-8 md:px-12 md:py-8 relative h-full min-h-[300px] md:min-h-[350px] ${
+                  isOddCount && index === resolvedRoastMasters.length - 1
+                    ? "md:col-span-2 md:mx-auto md:w-[calc(50%-1.25rem)] md:max-w-none"
+                    : ""
+                }`}
                 variants={cardVariants}
                 whileHover={{
                   scale: 1.05,
@@ -124,6 +157,29 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
+                {/* Floating decorative images on each card */}
+                <motion.div
+                  className="absolute -top-2 -left-6 pointer-events-none"
+                  variants={floatingVariants}
+                  animate="animate"
+                >
+                  <Image
+                    src={MicImage}
+                    alt="mic"
+                    className="size-24 opacity-90"
+                  />
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-6 -right-6 pointer-events-none"
+                  variants={floatingVariants}
+                  animate="animate"
+                >
+                  <Image
+                    src={ResumeImage}
+                    alt="resume"
+                    className="size-24 opacity-90"
+                  />
+                </motion.div>
                 <motion.div
                   className="relative mb-6"
                   whileHover={{ scale: 1.1 }}
@@ -183,9 +239,11 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
               </motion.div>
             ))}
           </motion.div>
-        ) : (
-          // Recruitment section when no data is available
-          <motion.div className="w-full mx-auto" variants={cardVariants}>
+        )}
+
+        {FeatureRule.roastMasters?.showRecruitment && (
+          // Recruitment section (also shown when data is visible if enabled)
+          <motion.div className="w-full mx-auto mt-16" variants={cardVariants}>
             <motion.div
               className="bg-secondary rounded-[60px] p-12 md:p-16 relative"
               whileHover={{ scale: 1.02 }}
@@ -205,10 +263,14 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     duration: 1.0,
                     ease: "backOut",
                     type: "spring",
-                    bounce: 0.6,
+                    bounce: 0.2,
                   }}
                 >
-                  <Image src={MicImage} alt="mic" className="size-24 lg:size-40" />
+                  <Image
+                    src={MicImage}
+                    alt="mic"
+                    className="size-24 lg:size-40"
+                  />
                 </motion.div>
               </motion.div>
               <motion.div
@@ -234,10 +296,14 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                     duration: 1.0,
                     ease: "backOut",
                     type: "spring",
-                    bounce: 0.6,
+                    bounce: 0.2,
                   }}
                 >
-                  <Image src={ResumeImage} alt="resume" className="size-24 translate-y-10 lg:translate-y-0 lg:size-40" />
+                  <Image
+                    src={ResumeImage}
+                    alt="resume"
+                    className="size-24 translate-y-10 lg:translate-y-0 lg:size-40"
+                  />
                 </motion.div>
               </motion.div>
 
@@ -311,7 +377,10 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       },
                     }}
                   >
-                    We&apos;re looking for founders, industry leaders, and comedians who can deliver brutal feedback with a punchline. If you believe in tough love and have the power to change a career in one night, we want you on the panel.
+                    We&apos;re looking for founders, industry leaders, and
+                    comedians who can deliver brutal feedback with a punchline.
+                    If you believe in tough love and have the power to change a
+                    career in one night, we want you on the panel.
                   </motion.p>
                 </motion.div>
 
@@ -358,7 +427,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Discover Raw Talent
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Find creative minds before they&apos;re buried in a pile of CVs.
+                      Find creative minds before they&apos;re buried in a pile
+                      of CVs.
                     </p>
                   </motion.div>
                   <motion.div
@@ -390,7 +460,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Build a Real Brand
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Become a legend (or a beloved villain) in Kolkata&apos;s startup scene.
+                      Become a legend (or a beloved villain) in Kolkata&apos;s
+                      startup scene.
                     </p>
                   </motion.div>
                   <motion.div
@@ -416,7 +487,8 @@ const RoastMasters: React.FC<RoastMastersProps> = ({ roastMasters = [] }) => {
                       Make a Difference
                     </h4>
                     <p className="text-neutral-black font-merriweather-sans text-base md:text-lg">
-                      Don&apos;t just talk about the talent gap. Close it. Live on stage.
+                      Don&apos;t just talk about the talent gap. Close it. Live
+                      on stage.
                     </p>
                   </motion.div>
                 </motion.div>
