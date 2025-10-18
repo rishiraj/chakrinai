@@ -60,7 +60,9 @@ export default function Home() {
       {FeatureRule.sections.reviews && <Reviews />}
 
       {/* Tickets Coming Soon Section */}
-      {showTicketsSection && ticketMode === "comingSoon" && <TicketsComingSoon />}
+      {showTicketsSection && ticketMode === "comingSoon" && (
+        <TicketsComingSoon />
+      )}
       {showTicketsSection && ticketMode === "buy" && <BuyTickets />}
 
       {/* Thank You Section */}
